@@ -13,6 +13,7 @@ import Errors from "../components/errors/Errors"
 import ServerError from "../components/errors/ServerError";
 import PrivateRoutes from "../ProtectectedRoute/PrivateRoutes";
 import ForgetPassword from "../pages/user/ForgetPassword";
+import Chat from "../pages/chat/Chat";
 
 const userRoutes = () => {
   return (
@@ -27,14 +28,16 @@ const userRoutes = () => {
           <Route path="/details" element={<VenueDetail />} />
           <Route path="/SearchResult" element={<SearchResult/>}/>
           
-          <Route element={<PrivateRoutes role={"user"} route={"/"}      />}>
-          <Route element={<UserProfileLayout/>}>
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/request" element={<Request/>} />
+          <Route element={<PrivateRoutes role={"user"} route={"/"}/>}>
+            <Route element={<UserProfileLayout/>}>
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/request" element={<Request/>} />
+              <Route path="/Chat" element={<Chat user={"user"}/>}/>
             </Route>
           </Route>
 
         </Route>
+        
         <Route path="/*"element={<Errors/>}/>
         <Route path="/500" element={<ServerError/>}/>
       </Routes>

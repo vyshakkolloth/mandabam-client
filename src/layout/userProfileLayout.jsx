@@ -6,17 +6,17 @@ const userProfileLayout = () => {
 
   return (
     <>
-      <div className='flex justify-center py-2'>
+      <div className='flex justify-center  py-2'>
         <div className="tabs mt-2">
           <Link to="/profile">
-            <a className={` tab tab-lifted ${location.pathname === '/profile' ? 'tab-active' : ''}`}>Profile</a>
+            <p className={` tab tab-lifted ${location.pathname === '/profile' ? 'tab-active' : ''}`}>Profile</p>
           </Link>
           <Link to="/request">
-            <a className={`tab tab-lifted ${location.pathname === '/request' ? 'tab-active' : ''}`}>Request</a>
+            <p className={`tab tab-lifted ${location.pathname === '/request' ? 'tab-active' : ''}`}>Request</p>
+          </Link >
+          <Link to="/Chat">
+            <p className={`tab tab-lifted ${location.pathname === '/Chat' ? 'tab-active' : ''}`}>chat</p>
           </Link>
-          {/* <Link to="/tab3"> */}
-            <a className={`tab tab-lifted ${location.pathname === '/chat' ? 'tab-active' : ''}`}>chat</a>
-          {/* </Link> */}
         </div>
       </div>
       <Outlet />

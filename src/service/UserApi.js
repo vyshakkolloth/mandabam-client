@@ -34,9 +34,11 @@ const changeDp=(data)=>userAxiosInstance.post("/changeDp",data ,config
     
   )
 const forgotPassword=(data)=>userAxiosInstance.post("/forgotPassword",{data})
+const   sentMessage=(data)=>userAxiosInstance.post("/sentMessage",{data})
+const userList=()=>userAxiosInstance.get("/userList")
   
 export{
-    loginService,
+    loginService,sentMessage,
     signUpUser,
-    venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword
+    venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword,userList
 }

@@ -25,6 +25,7 @@ const VendorLayouts = () => {
       <li><Link to="/venue/information">information</Link></li>
       <li><Link to="/venue/project"> project </Link></li> 
       <li><Link to="/venue/Enquiries"> Enquiries</Link></li>
+      <li><Link to="/venue/Chat"> Chat</Link></li>
      
     </ul>
   

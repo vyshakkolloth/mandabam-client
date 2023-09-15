@@ -13,7 +13,7 @@ const Nav = () => {
     dispatch(logout());
   };
   return (
-    <div className=" navbar  bg-pink-700 fixed  w-screen text-white flex justify-around  z-30">
+    <div className=" navbar   bg-pink-700   w- text-white flex justify-around  z-30">
      <Link to="/"> <span className=" text-lg no-underline hover:underline  ">
         {" "}
         India Favaroite wedding Venue booking Paltform

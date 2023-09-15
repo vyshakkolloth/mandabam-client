@@ -48,10 +48,10 @@ const UserList = () => {
                 <tr key={index} className="hover">
                   {/* <th>{user._id}</th> */}
                   <d>{index+1}</d>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.blocked ? "true" : "false"}</td>
+                  <td>{user?.name}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.phone}</td>
+                  <td>{user?.blocked ? "true" : "false"}</td>
                   <th>
                     <button onClick={()=>handleBlock(user._id)} className="btn btn-ghost btn-xs">button</button>
                   </th>

@@ -10,6 +10,8 @@ import Enquiries from '../pages/vendor/Enquiries';
 import Errors from '../components/errors/Errors';
 import PrivateRoutes from '../ProtectectedRoute/PrivateRoutes';
 
+import Chat from '../pages/chat/Chat';
+
 const vendorRouter = () => {
   return (
     <Routes>
@@ -23,6 +25,7 @@ const vendorRouter = () => {
         <Route path="/information" element={<VendorInfo/>}/>
         <Route path='/project' element={<Project/>}/>
         <Route path="/Enquiries" element={<Enquiries/>}/>
+        <Route path="/Chat" element={<Chat user={"venue"}/>}/>
         </Route>
         </Route>
         <Route path="*"element={<Errors/>}/>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import { venueDetail } from "../../service/UserApi";
+import { venueDetail,sentMessage} from "../../service/UserApi";
 import Booking from "../../components/user/Booking";
 import { useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 const VenueDetail = () => {
   const [data, setdata] = useState({});
@@ -22,7 +24,25 @@ const VenueDetail = () => {
       });
     // console.log(data);
   }, []);
- console.log(data.image)
+//  console.log(data.image)
+const handleMessage=()=>{
+  try {
+    let id=data?._id
+    sentMessage(id).then((res)=>{
+      console.log(res.status);
+    }).catch(
+      (err)=>{
+        console.log(err,"cath ERR");
+      }
+    )
+  } catch (error) {
+    console.log(err,"try catch");
+  }
+}
+
+
+
+
   return (
     <div className="bg-slate-100 w-full h-screen pt-9">
       <div className="container border border-primary h-screen shadow-sm mx-auto p-1">
@@ -64,7 +84,7 @@ const VenueDetail = () => {
                   policy on catering
                 </div>
                 <div className="collapse-content">
-                  <p>{data.catering}</p>
+                  <p>{data?.catering}</p>
                 </div>
               </div>
             </div>
@@ -92,7 +112,7 @@ const VenueDetail = () => {
               </div>
             </div>
             <div className="bg-pink-400 flex px-5 py-4 justify-between ">
-              <button className="btn rounded-2xl">Send message</button>
+              <button className="btn rounded-2xl" onClick={handleMessage}>Send message</button>
               <button className="btn  rounded-2xl">View contact</button>
             </div>
             <div>
