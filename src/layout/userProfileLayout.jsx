@@ -14,6 +14,11 @@ const userProfileLayout = () => {
           <Link to="/request">
             <p className={`tab tab-lifted ${location.pathname === '/request' ? 'tab-active' : ''}`}>Request</p>
           </Link >
+          <Link to="/BookedVenue">
+            <p className={`tab tab-lifted ${location.pathname === '/BookedVenue' ? 'tab-active' : ''}`}>Booked Venue</p>
+          </Link >
+          
+
           <Link to="/Chat">
             <p className={`tab tab-lifted ${location.pathname === '/Chat' ? 'tab-active' : ''}`}>chat</p>
           </Link>

@@ -13,7 +13,7 @@ const VnavBar = () => {
   };
   return (
     <>
-    <div className='w-full  p-1 px-5 bg-pink-800 '>
+    <div className='w-full  p-1 px-5 text-white bg-pink-800 '>
     India's Favourite Wedding Planning Platform
     </div>
     <div className='flex justify-between  w-full p-2 px-9  bg-pink-500 text-white'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { toast,Toaster } from "react-hot-toast";
 import { signUpUser } from '../../service/UserApi';
-import {  Link, useNavigate } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { showAlertError,showAlertSuccess } from '../../service/showAlert';
 
 import{useDispatch} from "react-redux"
@@ -13,7 +13,7 @@ const [name, setname] = useState("")
 const [email, setemail] = useState("")
 const [phone, setphone] = useState("")
 const [password, setpassword] = useState()
-const navigate = useNavigate();
+// const navigate = useNavigate();
 const [verify, setVerfify] = useState(false);
 
 const handleSubmit=()=>{
@@ -55,7 +55,7 @@ const handelsignup = () => {
   modalCheckbox.checked = true;}
   else{ 
     showAlertError(dispatch,"please type vallied phone no.")
-  }
+  } 
   
 };
 

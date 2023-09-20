@@ -21,7 +21,8 @@ function PrivateRoutes({ role, route }) {
             localStorage.removeItem("userToken");
             dispatch(logout());
           } else if (response.data.auth) {
-            dispatch(login(response.data));
+            // console.log(response.data,"auth555");
+            dispatch(login(response?.data?.data));
           }
           setAuth(response.data?.auth);
         })
@@ -42,7 +43,7 @@ function PrivateRoutes({ role, route }) {
             localStorage.removeItem("venderToken");
             dispatch(vlogout());
           } else {
-            dispatch(vlogin(resp.data));
+            dispatch(vlogin(resp?.data?.data));
           }
           setAuth(resp.data.auth);
         })

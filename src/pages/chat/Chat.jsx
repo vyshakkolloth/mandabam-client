@@ -1,44 +1,30 @@
-import React, { useEffect, useState } from 'react'
-// import io from "socket.io-client"
-import InpuChat from '../../components/chat/InpuChat'
-// const socket =io.connect("http://localhost:4000/")
-// import propTypes from "prop-types";
+import React, {  useState } from 'react'
+
 import UserList from "../../components/chat/UserList"
-// import ChatHome from '../../components/chat/ChatHome';
+
 import Message from '../../components/chat/Message';
 
+
 const Chat = ({user}) => {
+
+  
+ const [selected, setselected] = useState("")
     
-    // const handle=()=>{
-    //     if(user!==""&&room!==""){
-    //         socket.emit("join_room",room)
-    //         console.log("user",socket.id,"room:",room)
-    //     }else{
-    //          alert()
-    //     }
-    // }
-    // useEffect(() => {
-      
-    // socket.on("recieve",(data)=>{
-    //     console.log(data);
-    //     setmsgRec(data)
-    // })
-     
-    // }, [socket])
     
   return (
 
-    // <div className='container bg-rose-950 
-    //  mx-auto flex '>
-      <div className='flex container  mx-auto '> 
-      {user}
-      <UserList user={user}/>
-        <Message/>
-        {/* </div> */}
-      
-      
-  
+   <div>
+    <div className='   text-center mx-auto'>
+    <button onClick={()=>setselected("")} className="btn btn-circle btn-outline">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+</button>
     </div>
+      <div className='flex container antialiased  my-3 h-screen mx-auto '> 
+      
+      <UserList user={user} setselected={setselected}/>
+      <Message  selected={selected}  user={user}/>        
+      
+      </div>    </div>
   )
 }
 

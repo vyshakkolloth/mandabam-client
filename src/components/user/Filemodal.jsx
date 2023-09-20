@@ -17,6 +17,7 @@ const Filemodal = () => {
       const formData = new FormData();
     //   formData.append(formData, selectedFile);
       formData.append("image",selectedFile)
+      // console.log(formData)
 
       // Make a POST request to your server or API endpoint
       changeDp(formData).then((res)=>{

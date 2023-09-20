@@ -1,19 +1,23 @@
 import React from "react";
+import Shimmer from "../components/admin/Shimmer";
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import UserLogin from "../pages/user/userLogin";
+const UserLogin =lazy(()=>import( "../pages/user/userLogin"))
 import UserHome from "../pages/user/home";
 import UserLayout from "../layout/userLayout";
 import UserProfileLayout from "../layout/userProfileLayout";
-import UserSIgnin from "../pages/user/UserSIgnin";
-import VenueDetail from "../pages/user/VenueDetail";
-import Profile from "../pages/user/Profile";
-import Request from "../pages/user/Request";
-import SearchResult from "../pages/user/SearchResult";
+const  UserSIgnin =lazy(()=>import( "../pages/user/UserSIgnin"))
+const  VenueDetail =lazy(()=>import(  "../pages/user/VenueDetail"))
+const  Profile =lazy(()=>import(  "../pages/user/Profile"))
+const  Request =lazy(()=>import(  "../pages/user/Request"))
+const SearchResult =lazy(()=>import( "../pages/user/SearchResult"))
 import Errors from "../components/errors/Errors"
 import ServerError from "../components/errors/ServerError";
 import PrivateRoutes from "../ProtectectedRoute/PrivateRoutes";
-import ForgetPassword from "../pages/user/ForgetPassword";
-import Chat from "../pages/chat/Chat";
+import BookedVenusList from "../components/user/BookedVenusList";
+import View_Contaxt from "../components/user/View_Contaxt";
+ const ForgetPassword=lazy(()=> import( "../pages/user/ForgetPassword"))
+const Chat=lazy(()=>import("../pages/chat/Chat")) ;
 
 const userRoutes = () => {
   return (
@@ -22,18 +26,31 @@ const userRoutes = () => {
         
         <Route element={<UserLayout />}>
           <Route path="/" element={<UserHome />} />
-          <Route path="/forget" element={<ForgetPassword />}/>
-          <Route exact path="/login" element={<UserLogin />} />
-          <Route path="/signUp" element={<UserSIgnin />} />
-          <Route path="/details" element={<VenueDetail />} />
-          <Route path="/SearchResult" element={<SearchResult/>}/>
+          <Route path="/forget" element={
+             <Suspense fallback={<Shimmer />}>
+              <ForgetPassword />
+             </Suspense>
+          }/>
+          <Route exact path="/login" element={
+          <Suspense fallback={<Shimmer />}><UserLogin /></Suspense>} />
+          <Route path="/signUp" element={ <Suspense fallback={<Shimmer />}><UserSIgnin /> </Suspense>} />
+          <Route path="/details" element={<Suspense fallback={<Shimmer />}>
+          <VenueDetail /></Suspense>} />
+          <Route path="/SearchResult" element={<Suspense fallback={<Shimmer />}>
+          <SearchResult/></Suspense>}/>
           
           <Route element={<PrivateRoutes role={"user"} route={"/"}/>}>
             <Route element={<UserProfileLayout/>}>
-              <Route path="/profile" element={<Profile/>} />
-              <Route path="/request" element={<Request/>} />
-              <Route path="/Chat" element={<Chat user={"user"}/>}/>
+              <Route path="/profile" element={<Suspense fallback={<Shimmer />}>
+              <Profile/> </Suspense>} />
+              <Route path="/request" element={
+              <Suspense fallback={<Shimmer />}><Request/></Suspense>} />
+              <Route path="/Chat" element={
+              <Suspense fallback={<Shimmer />}><Chat user={"user"}/></Suspense>}/>
+              <Route path="/BookedVenue" element={<BookedVenusList/>}/>
+              {/* <Route path="/map" element={<View_Contaxt/>}/> */}
             </Route>
+            
           </Route>
 
         </Route>

@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { enquire } from '../../service/UserApi'
 import { toast,Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import PaymentModal from '../../components/user/PaymentModal';
 
 
 const Request = () => {
   const navigate = useNavigate();
     const [data, setdata] = useState([])
+    const [payment, setpayment] = useState([])
    useEffect(() => {
      
     enquire().then((res)=>{
-      console.log(res,"+555")
+      // console.log(res,"+555")
       if(res.status==200){
         setdata(res.data.data)
       }
@@ -22,6 +24,16 @@ const Request = () => {
   })
      
    }, [])
+   const formatDate = (receivedDate) => {
+    if (!receivedDate) {
+      return "";
+    }
+    const date = new Date(receivedDate);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${month}/${day}/${year}`;
+  };
    
   return (
     <>
@@ -32,7 +44,7 @@ const Request = () => {
           <>
         <div key={index} className={`card w-96   ${item?.status?"bg-success":"bg-warning"} text-neutral-content`}>
           <div className="card-body ">
-            <h2 className="card-title">{item?.date}</h2>
+            <h2 className="card-title">{formatDate(item?.date)}</h2>
 
             <p> Name: {item?.name} </p>
             <p>email: {item?.email}</p>
@@ -41,12 +53,14 @@ const Request = () => {
             <p>contact: {item?.Phone} </p>
             <p>Function Time:{item?.time}</p>
             <p>Status:{item?.status?(<a className='text-green-700 font-semibold'>Accept</a>):(<a>Pending</a>)}</p>
+            {item?.status?(<p>Amount: {item.amount}</p>):null}
 
 
 
 
             <div className="card-actions justify-end">
-              <button value="Proced" disabled={!item?.status} className="btn ">proceed</button>
+              <button value="Proced" disabled={!item?.status} onClick={()=>{document.getElementById('my_modal_5').showModal(); setpayment(item)}} className="btn ">proceed</button>
+              <PaymentModal item={payment}/>
               
             </div>
           </div>

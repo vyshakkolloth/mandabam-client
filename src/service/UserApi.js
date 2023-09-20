@@ -25,20 +25,24 @@ const enquire=()=>userAxiosInstance.get("/enquire")
 const search=(id)=>userAxiosInstance.get(`/search/${id}`)
 const password=(data)=>userAxiosInstance.post("/password",{data})
 const changePassword=(data)=>userAxiosInstance.post("/changePassword",{data})
+const datePicker=(data)=>userAxiosInstance.post("/datePicker",{data})
 const config = {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
   };
-const changeDp=(data)=>userAxiosInstance.post("/changeDp",data ,config
-    
-  )
+const changeDp=(data)=>{ alert(); 
+  return userAxiosInstance.post("/changeDp",data,config)}
 const forgotPassword=(data)=>userAxiosInstance.post("/forgotPassword",{data})
 const   sentMessage=(data)=>userAxiosInstance.post("/sentMessage",{data})
 const userList=()=>userAxiosInstance.get("/userList")
-  
+const getUserMessage=(data)=>userAxiosInstance.post("/getMessage",{data})
+const PostuserMessage=(data)=>userAxiosInstance.post("/postuserMessage",{data})
+const paymentCreate=(data)=>userAxiosInstance.post("/paymentCreate",{data})
+const paymentVerify=(data,id)=>userAxiosInstance.post("/paymentVerify",{data,id})
+const bookedVenue=()=>userAxiosInstance.get("/bookedVenue")
 export{
-    loginService,sentMessage,
-    signUpUser,
-    venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword,userList
+    loginService,sentMessage,getUserMessage,bookedVenue,
+    signUpUser,PostuserMessage,paymentCreate,paymentVerify,datePicker,
+    venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword,userList,
 }

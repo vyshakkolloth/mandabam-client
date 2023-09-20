@@ -17,11 +17,22 @@ const projectUpload=(data)=>{
   
   return vendorAxiosInstance.post("/project",{data})
 }
+const config = {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+};
+const VenueGallery=(data)=>vendorAxiosInstance.post("/VenueGallery",data ,config)
+const VenueImageDelete=(data)=>vendorAxiosInstance.post("/VenueImageDelete",{data})
+const acceptEnquire=(data)=>vendorAxiosInstance.post("/acceptEnquire",{data})
 const getImages=()=>vendorAxiosInstance.get("/getImages")
 const booking=()=>vendorAxiosInstance.get("/booking")
 const changeBooking=(id)=>vendorAxiosInstance.get(`/changeBooking/${id}`)
 const authVenue=()=>vendorAxiosInstance.get("/authVenue")
+const msguserList=()=>vendorAxiosInstance.get("/userList")
+const PostVedorMessage=(data)=>vendorAxiosInstance.post("/PostVedorMessage",{data})
+const PreviousEnquire=()=>vendorAxiosInstance.get("/PreviousEnquire")
+const ConfirmEnquire=()=>vendorAxiosInstance.get("/ConfirmEnquire")
 
-
-export { signUp, Venderlogin, informationPost, authVenue,
-  getInformation ,projectUpload,getImages,booking,changeBooking};
+export { ConfirmEnquire,signUp,PostVedorMessage,VenueGallery,VenueImageDelete, Venderlogin, informationPost, authVenue,msguserList,PreviousEnquire,
+  getInformation ,projectUpload,getImages,booking,changeBooking,acceptEnquire};

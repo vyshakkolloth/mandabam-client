@@ -1,11 +1,54 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { booking } from "../../service/UserApi";
+import { booking ,datePicker} from "../../service/UserApi";
 import { showAlertError, showAlertSuccess } from "../../service/showAlert";
 import { useDispatch } from "react-redux";
+import DatePicker from 'react-date-picker'
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import { useEffect } from "react";
+import { useState } from "react";
 const Booking = ({ venueid }) => {
   const dispatch = useDispatch();
+  const [block, setblock] = useState([])
+  useEffect(() => {
+    try {
+      let id=venueid
+      datePicker(id).then((res)=>{
+      // console.log(res.data.date,"datepicker")
+      if(res.status===200){
+        setblock(res?.data?.date)
+      }
+      
+      }).catch((err)=>{
+        console.log(err,"datePick")
+      })
+      
+    } catch (error) {
+      console.log(error,"try catch")
+    }
+  
+    
+  }, [])
+  // const blockedDates = [new Date('2023-09-25'), new Date('2023-09-28')];
+
+  const isDateDisabled = (date) => {
+    const timeZoneOffsetMinutes = date.getTimezoneOffset();
+
+  // Calculate the adjusted date by subtracting the time zone offset in minutes
+  const adjustedDate = new Date(date.getTime() - timeZoneOffsetMinutes * 60000);
+    // Format the date as a string in the same format as the blockedDates
+    const formattedDate = adjustedDate.toISOString().split('T')[0]+ "T00:00:00.000Z";
+    console.log("Formatted Date:", formattedDate);
+     console.log("Blocked Dates:", block);
+    return block.includes(formattedDate);
+  };
+  
+
+
+
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -13,7 +56,7 @@ const Booking = ({ venueid }) => {
       guest: "",
       type: "",
       Phone: "",
-      date: "",
+      date: new Date(),
       rooms: "",
       time: "",
     },
@@ -141,7 +184,11 @@ const Booking = ({ venueid }) => {
               ) : null}
             </div>
             <div className="mt-2">
-              <input
+            <DatePicker  name="date" onChange={(date) => formik.setFieldValue("date", date)} format="dd-MM-y"
+             value={formik.values.date} minDate={new Date()}  onBlur={formik.handleBlur} tileDisabled={({ date }) => isDateDisabled(date)} />
+
+
+              {/* <input
                 type="date"
                 className="flex border-b-2 bg-white "
                 values={formik.values.date}
@@ -149,7 +196,7 @@ const Booking = ({ venueid }) => {
                 onChange={formik.handleChange}
                 name="date"
                 placeholder="*Function date"
-              ></input>
+              ></input> */}
               {formik.errors.date && formik.touched.date ? (
                 <label className="text-red-600">{formik.errors.date}</label>
               ) : null}

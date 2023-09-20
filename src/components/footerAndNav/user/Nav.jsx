@@ -13,21 +13,12 @@ const Nav = () => {
     dispatch(logout());
   };
   return (
-    <div className=" navbar   bg-pink-700   w- text-white flex justify-around  z-30">
-     <Link to="/"> <span className=" text-lg no-underline hover:underline  ">
+    <div className=" navbar   bg-pink-700    text-white flex justify-around  z-30">
+     <Link to="/"> <span className=" text-lg text-white  no-underline hover:underline  ">
         {" "}
         India Favaroite wedding Venue booking Paltform
       </span> </Link>
-      {/* dd.value.isUserAuth */}
-      {/* <div>
-     
-        <input
-          className="bg-white rounded-sm ml-10 pl-5"
-          placeholder="search by location "
-          type="text"
-        ></input>
-        <VscSearch className="ml-2" />
-      </div> */}
+    
       {localStorage.getItem("userToken") ? (
         <div className="dropdown dropdown-hover ">
           <label tabIndex={0} className="btn btn-md">

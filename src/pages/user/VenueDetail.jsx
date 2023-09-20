@@ -1,35 +1,45 @@
 import React, { useEffect, useState } from "react";
+import { showAlertError,showAlertSuccess } from "../../service/showAlert";
+import { useDispatch } from "react-redux";
 
 import { venueDetail,sentMessage} from "../../service/UserApi";
 import Booking from "../../components/user/Booking";
 import { useLocation } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+
+import {   useNavigate } from "react-router-dom";
 
 
 const VenueDetail = () => {
   const [data, setdata] = useState({});
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
 
   const location = useLocation();
   const value = location?.state;
   const id = value?.query;
-  console.log(id, "id");
+
   useEffect(() => {
     venueDetail(id)
       .then((res) => {
         setdata(res.data.data);
-        // console.log(res.data.data);
+       
       })
       .catch((err) => {
         console.log(err, "5555");
       });
-    // console.log(data);
+    
   }, []);
-//  console.log(data.image)
+
 const handleMessage=()=>{
   try {
     let id=data?._id
     sentMessage(id).then((res)=>{
-      console.log(res.status);
+      console.log(res);
+      if(res.status===200){
+navigate("/Chat")
+      }else if(res.status===204){
+showAlertError(dispatch,"user already in your list")
+      }
     }).catch(
       (err)=>{
         console.log(err,"cath ERR");
@@ -61,7 +71,7 @@ const handleMessage=()=>{
             </div>
             <div className=" flex flex-col gap-2">
               <div className="collapse collapse-arrow bg-base-200">
-                <input type="radio" name="my-accordion-2" checked="checked" />
+                <input type="radio" name="my-accordion-2" checked />
                 <div className="collapse-title text-xl font-medium">
                   Is parking available at the venue?
                 </div>

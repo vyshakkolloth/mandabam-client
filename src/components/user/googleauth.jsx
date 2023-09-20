@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import { login } from "../../redux/user";
-import { Toaster, toast } from 'react-hot-toast'
+import  { Toaster, toast } from 'react-hot-toast'
 
 import {loginService} from "../../service/UserApi";
 const googleauth = () => {
