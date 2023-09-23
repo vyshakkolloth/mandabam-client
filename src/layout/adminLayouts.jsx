@@ -7,24 +7,34 @@ import Sidebar from '../components/admin/Sidebar'
 const adminLayouts = () => {
   return (
    <>
-   <div className='bg-rose-600'>
-    <Nav/>
-    <div className="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-  <div className="drawer-content flex flex-col items-center justify-center">
-  <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-  <Outlet/>
+   
     
+    <div className="drawer ">
+  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content "> 
+  {/* //flex flex-col items-center justify-center */}
+  <Nav/>
+  <div className='container mx-auto rounded-lg shadow-lg'>
+  <Outlet/>
+  </div>
   
+  {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+   
+
+ 
   </div> 
-  
+
+    
   <Sidebar/>
+ 
+  
+ 
    
   </div>
  
   
    
-  </div>
+  
   
   
    

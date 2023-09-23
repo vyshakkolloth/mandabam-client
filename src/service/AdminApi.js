@@ -23,11 +23,12 @@ const Adminlogin = (email,passsword) => {
     return adminAxiosInstance.get(`/blockVendor/${id}`)
   }
   const authAdmin=()=>{
-    alert
+   
     return adminAxiosInstance.get("/authAdmin")
   }
+  const adminVenueVerification=()=>adminAxiosInstance.get("/adminVenueVerification")
   
  
   export{
-    Adminlogin,userData,venueData,blockUser,blockVendor,authAdmin
+    Adminlogin,userData,venueData,blockUser,blockVendor,authAdmin,adminVenueVerification
   }

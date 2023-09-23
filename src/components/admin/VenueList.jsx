@@ -6,6 +6,8 @@ import {  venueData,blockVendor } from '../../service/AdminApi';
 const venueList = () => {
    const [data, setdata] = useState([]);
   const [loading, setloading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); 
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -25,11 +27,18 @@ const venueList = () => {
       setloading(!loading)
       console.log(res.data)})).catch((err)=>console.log(err))}
 
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+      
+        const paginate = (pageNumber) => {
+          setCurrentPage(pageNumber);
+        };
 
   return (
-     <div>
-      <div className="overflow-x-auto">
-        {data.length > 0 ? (
+     <div className='pt-5'>
+      <div className="overflow-x-auto h-[56vh]">
+        {currentItems.length > 0 ? (
           <table className="table">
             <thead>
               <tr>
@@ -60,6 +69,26 @@ const venueList = () => {
           <p>No data available.</p>
         )}
       </div>
+      <div className=" flex justify-center">
+    <div className="pagination flex">
+          {data.length > itemsPerPage &&
+            Array(Math.ceil(data.length / itemsPerPage))
+              .fill()
+              .map((_, index) => (
+               
+                  <button
+                  key={index}
+                  className={`join-item btn  ${
+                    currentPage === index + 1 ? "btn-active" : ""
+                  }`}
+                    onClick={() => paginate(index + 1)}
+                  
+                  >
+                    {index + 1}
+                  </button>
+              ))}
+        </div>
+    </div>
     </div>
   )
 }

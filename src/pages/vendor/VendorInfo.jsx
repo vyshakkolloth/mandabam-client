@@ -4,6 +4,7 @@ import { showAlertSuccess } from "../../service/showAlert";
 import{useDispatch} from "react-redux"
 
 import {informationPost,getInformation} from"../../service/vendorApi"
+import LocationModal from "../../components/Vendor/LocationModal";
 const VendorInfo = () => {
 
   const dispatch = useDispatch();
@@ -99,7 +100,7 @@ const handleTypeFilter = (event) => {
 
 
   return (
-    <div className="min-h-screen  bg-gray-400"> 
+    <div className="min-h-screen "> 
      <Toaster toastOptions={3000} />
       {/* <div className=" flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden ">
         <div class="flex items-center justify-center h-20 shadow-md">
@@ -108,20 +109,20 @@ const handleTypeFilter = (event) => {
       </div> */}
 
       {/* inpu */}
-      <div className="bg-white  pb-13 max-w-screen-2xl mx-auto pt-9">
-        <div className=" w-4/5 xl:px-3 mx-auto outline-dotted shadow-stone-100 shadow-sm ">
-          <label> personal information</label>
+      <div className=" mt-5 pb-13 max-w-screen-2xl shadow-2xl rounded-2xl pt-9">
+        <div className=" w-4/5 xl:px-3 mx-auto outline-1 p-4  shadow-xl bg-pink-100 rounded-xl">
+          <label className="font-serif text-lg font-bold btn glass  transition-colors backdrop-blur-sm">VENUE DETAIL</label>
 
-           <div className=" my-2 ">   {/* flex-0 gap-6 */}
-            <label className=" text-gray-900 w-1/3 ">Login in Email Id</label>
+           <div className=" my-2 flex justify-around items-center ">  
+            <label className=" text-gray-900 w-1/3  ">Login in Email Id</label>
             <input disabled
               type="text" onChange={(e)=>setemail(e.target.value)}
-              className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
+              className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 " 
               placeholder="Example@gmail.com"
               value={email}
             ></input>
           </div>
-          <div className=" my-2 flex-0 gap-6">
+          <div className="my-2 flex justify-around items-center">
             <label className=" text-gray-900 w-1/3 ">Brand name</label>
             <input disabled
               type="text"
@@ -131,7 +132,7 @@ const handleTypeFilter = (event) => {
               placeholder="Example"
             ></input>
           </div>
-          <div className=" my-2 flex-0 gap-6">
+          <div className=" my-2 flex justify-around items-center">
             <label className=" text-gray-900 w-1/3 ">Contact Person name</label>
             <input
               type="text"
@@ -141,7 +142,7 @@ const handleTypeFilter = (event) => {
               placeholder="Name"
             ></input>
           </div>
-          <div className=" my-2 flex-0 gap-6">
+          <div className=" my-2 flex justify-around items-center">
             <label className=" text-gray-900 w-1/3 ">Contact Number</label>
             <input
               type="number"
@@ -151,19 +152,20 @@ const handleTypeFilter = (event) => {
               placeholder="Phone Number"
             ></input>
           </div>
-          <div className=" my-2 flex-0 gap-6">
+          <div className=" my-2 flex items-center">
             <label className=" text-gray-900 w-1/3 ">
-              adtional information
+              Addtional information
             </label>
-            <input
+            <textarea  value={information}   onChange={(e)=>setinformation(e.target.value)} placeholder="Bio" className="textarea textarea-bordered textarea-md w-2/3 max-w-xs" ></textarea>
+            {/* <input
               type="text"
               value={information}
               onChange={(e)=>setinformation(e.target.value)}
               className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
               placeholder="enter your comapany name"
-            ></input>
+            ></input> */}
           </div>
-          {/* <div className=" my-2 flex-0 gap-6">
+          <div className=" my-2 flex justify-around items-center">
             <label className=" text-gray-900 w-1/3 ">
               city*(chose your base city here)
             </label>
@@ -174,27 +176,51 @@ const handleTypeFilter = (event) => {
               className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
               placeholder="enter your comapany name"
             ></input>
-          </div> */}
-          {/* <div className=" my-2 flex-0 gap-6">
-            <label className=" text-gray-900 w-1/3 ">location</label>
-            <input
+          </div>
+          <div className="  my-2 flex justify-around items-center">
+         <label className=" text-gray-900 w-1/3 ">location</label>
+           <input
               type="text"
               className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
               placeholder="enter your comapany name"
             ></input>
-          </div> */}
+          </div>
+
+
+
+
+          <div className="flex">
+                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                  <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button>
+                  <LocationModal/>
+                 
+          </div>
+
+
+
+          
         </div>
-        <div className=" w-4/5 mx-auto  ">
-          <label className="pt-8 text-xl text-black inline-block bg-red-300 font-semibold">
+
+
+
+
+
+
+
+
+
+    
+        <div   className=" w-4/5 mx-auto  ">
+          <label className="pt-8 text-xl text-black inline-block  font-semibold">
             {" "}
-            Addisional Detail
+            Additional Detail
           </label>
           <div className="  border-b-2">
             <label htmlFor="gathering">
               {" "}
               Do you also allow small size gather in (&lt;50)?
             </label>
-            <div className="flex align-middle border-b-1 p-5">
+            <div className="flex align-middle border-b-1 p-5"  data-aos="zoom-in-right">
               {" "}
              
               <input
@@ -217,7 +243,7 @@ const handleTypeFilter = (event) => {
                 className="radio radio-accent mx-2"
               /> no
             </div>
-            <div className=" border-b-1 mb-1">
+            <div  data-aos="zoom-in-right"  className=" border-b-1 mb-1">
               <label>
                 is parking available at the venue?
               </label>
@@ -228,7 +254,7 @@ const handleTypeFilter = (event) => {
               </div>
 
             </div>
-            <div className="border-b-1 p-3 mx-1">
+            <div  data-aos="zoom-in-right" className="border-b-1 p-3 mx-1">
               <label>Primary Venue Type </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="type" onChange={typeHandle} value="Farmhouse with indoor Banguet capacity" checked={type==="Farmhouse with indoor Banguet capacity"} type="radio" className="radio"/> <label> Farmhouse with indoor Banguet capacity</label></span>
@@ -244,14 +270,14 @@ const handleTypeFilter = (event) => {
 
 
             </div>
-            <div className="border-b-1 m-1">
+            <div  data-aos="zoom-in-right" data-aos-duration="1500" className="border-b-1 m-1">
               <label>what year did Venue start operation ?.</label>
               <div className="my-3">
                 <input type="date" name="since" value={year} onChange={(e)=>setyear(e.target.value)} className="border-gray-200 bg-white outline-0 shadow-xl"/>
               </div>
             </div>
-            <div className="border-b-2">
-            <label>Please set whatever isapplication for your venue </label>
+            <div className="border-b-2 "  data-aos="zoom-in-right" data-aos-duration="1500">
+            <label>Please set whatever isa pplication for your venue </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="application" onChange={applicationHandle} type="radio" className="radio" value="Venue is Wheel chair friendly" checked={application==="Venue is Wheel chair friendly"} /> <label> Venue is Wheel chair friendly</label></span>
             <span className="flex align-middle gap-x-2"><input name="application" onChange={applicationHandle} type="radio" className="radio" value="Venue has sufficient parking available" checked={application==="Venue has sufficient parking available"} /> <label> Venue has sufficient parking available</label></span>
@@ -262,21 +288,21 @@ const handleTypeFilter = (event) => {
 
             </div>
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2 "  data-aos="zoom-in-right">
               <label className="wx"> what is the starting price for vegeterian menu?(assume 250 pax and standard menu)</label>
               <div>
                 <input type="text" value={veg} onChange={(e)=>setveg(e.target.value)} className="bg-white"/>
               </div>
 
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2"  data-aos="zoom-in-right">
               <label className="wx">What is the starting price for a non-veg menu? (assume 250 pax and standard menu)</label>
               <div>
                 <input type="text" value={nonVeg} onChange={(e)=>setnonVeg(e.target.value)} className="bg-white"/>
               </div>
 
             </div>
-            <div className="border-b-1 p-2">
+            <div className="border-b-1 p-2 " data-aos-duration="1500" data-aos="zoom-in-right">
               <label> Venue Type filter</label>
               <div className="flex flex-col gap-2">
                 <span className="flex gap-1"><input value="Indoor" onChange={handleTypeFilter} checked={typeFilter.includes("Indoor")} type="checkbox" className="checkbox "/><p>Indoor</p></span>
@@ -285,7 +311,7 @@ const handleTypeFilter = (event) => {
                 <span className="flex gap-1"><input value="Terrace" onChange={handleTypeFilter} checked={typeFilter.includes("Terrace")} type="checkbox" className="checkbox "/><p> Terrace</p></span>
               </div>
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2" data-aos-duration="1500"  data-aos="zoom-in-right">
             <label>What is your policy on catering? </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="catering" type="radio" className="radio" onChange={caterinHandle}  value="Inhouse catering, Outside vendors not permitted" checked={catering==="Inhouse catering, Outside vendors not permitted"} /> <label> Inhouse catering, Outside vendors not permitted</label></span>
@@ -295,7 +321,7 @@ const handleTypeFilter = (event) => {
 
             </div>
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2" data-aos-duration="1500" data-aos="zoom-in-right">
             <label>What is your policy on decor? </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="decor" type="radio" onChange={decorHandle} className="radio" value="Decorators should be chosen only from enlisted Panel"  checked={decor==="Decorators should be chosen only from enlisted Panel"} /> <label> Decorators should be chosen only from enlisted Panel</label></span>
@@ -304,7 +330,7 @@ const handleTypeFilter = (event) => {
 
             </div>
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2" data-aos-duration="1500" data-aos="zoom-in-right">
             <label>What is your policy on alcohol? </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="alchol"  onChange={alcholHandle}  type="radio" className="radio" value=" In house alcohol available, Outside alcohol permitted" checked={alcohol===" In house alcohol available, Outside alcohol permitted"}/> <label> In house alcohol available, Outside alcohol permitted</label></span>
@@ -314,7 +340,7 @@ const handleTypeFilter = (event) => {
 
             </div>
             </div>
-            <div className="border-b-2">
+            <div className="border-b-2" data-aos-duration="1500" data-aos="zoom-in-right">
             <label>What is your policy on DJ's? </label>
             <div className="mt-5 ">
             <span className="flex align-middle gap-x-2"><input name="dj" type="radio" value="In house DJ available, Outside DJ permitted" checked={dj==="In house DJ available, Outside DJ permitted"} onChange={djHandle} className="radio"/> <label> In house DJ available, Outside DJ permitted</label></span>

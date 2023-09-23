@@ -32,20 +32,16 @@ const Message = ({selected,user}) => {
       if(data){
         console.log(data,"dataaaa")
        
-          setmessage((prev)=>[...prev,data])
+          if(data.id===selected._id){
+            setmessage((prev)=>[...prev,data])
+          }
+          
        
        
       }
        
         });
 
-
-        // socket.on("msg-reverse",(data)=>{
-        //   alert("inside")
-        //   if(data){
-        //     alert()
-        //   }
-        // })
   }  
   }, [socket])
  

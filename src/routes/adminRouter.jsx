@@ -5,8 +5,9 @@ import AdminHome from '../pages/admin/adminHome'
 import AdminLayouts from '../layout/adminLayouts'
 import UserManagment from '../pages/admin/UserManagment'
 import AdminVendorMangment from '../pages/admin/AdminVendorMangment'
+import VenueList from '../components/admin/VenueList'
 import AdminVenuemanagemnt from '../pages/admin/AdminVenuemanagemnt'
-// import PrivateRoutes from '../ProtectectedRoute/protectedRoute'
+import Members from "../pages/admin/membership"
 import Errors from '../components/errors/Errors'
 
 const adminRouter = () => {
@@ -22,14 +23,20 @@ const adminRouter = () => {
         <Route exact path="/home" element={<AdminHome/>}/>
 
         <Route path='/user'element={<UserManagment/>}/>
-        <Route path='/vendor'element={<AdminVendorMangment/>}/>
-        <Route path='/chat'element={<AdminVenuemanagemnt/>}/>
+
+            <Route element={<AdminVendorMangment/>}>
+              <Route path="/venueList" element={<VenueList/>}/>
+              <Route path="/VenderAcceptance" element={<AdminVenuemanagemnt/>}/>
+              <Route path="/VenueReporting" element={<Members/>}/>
+
+            </Route>
+        {/* <Route path='/chat'element={<AdminVenuemanagemnt/>}/> */}
      
        
         </Route> </>
         ):null}
          
-         <Route path="*"element={<Errors/>}/>
+     <Route path="*"element={<Errors/>}/>
      
     </Routes>
     </>

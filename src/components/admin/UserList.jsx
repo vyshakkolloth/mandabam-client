@@ -5,6 +5,10 @@ import {   useNavigate } from "react-router-dom";
 const UserList = () => {
   const [data, setdata] = useState([]);
   const [loading, setloading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); 
+
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,13 +30,23 @@ const UserList = () => {
   const handleBlock=(id)=>{
     blockUser(id).then((res=>{
       setloading(!loading)
-      console.log(res.data)})).catch((err)=>console.log(err))
+      console.log(res.data)}))
+      .catch((err)=>console.log(err))
   }
+// Calculate the indexes of the items to display on the current page
+const indexOfLastItem = currentPage * itemsPerPage;
+const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto h-[50vh]  ">
         {data.length > 0 ? (
-          <table className="table">
+          <table className="table ">
             <thead>
               <tr>
                 <th>index</th>
@@ -44,7 +58,7 @@ const UserList = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((user, index) => (
+              {currentItems?.map((user, index) => (
                 <tr key={index} className="hover">
                   {/* <th>{user._id}</th> */}
                   <d>{index+1}</d>
@@ -53,7 +67,7 @@ const UserList = () => {
                   <td>{user?.phone}</td>
                   <td>{user?.blocked ? "true" : "false"}</td>
                   <th>
-                    <button onClick={()=>handleBlock(user._id)} className="btn btn-ghost btn-xs">button</button>
+                    <button onClick={()=>handleBlock(user._id)} className="btn  glass btn-xs">button</button>
                   </th>
                 </tr>
               ))}
@@ -62,7 +76,28 @@ const UserList = () => {
         ) : (
           <p>No data available.</p>
         )}
+  
       </div>
+      <div className=" flex justify-center">
+    <div className="pagination flex">
+          {data.length > itemsPerPage &&
+            Array(Math.ceil(data.length / itemsPerPage))
+              .fill()
+              .map((_, index) => (
+               
+                  <button
+                  key={index}
+                  className={`join-item btn  ${
+                    currentPage === index + 1 ? "btn-active" : ""
+                  }`}
+                    onClick={() => paginate(index + 1)}
+                  
+                  >
+                    {index + 1}
+                  </button>
+              ))}
+        </div>
+    </div>
     </div>
   );
 };
