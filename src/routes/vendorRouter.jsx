@@ -11,6 +11,9 @@ import Errors from '../components/errors/Errors';
 import PrivateRoutes from '../ProtectectedRoute/PrivateRoutes';
 
 import Chat from '../pages/chat/Chat';
+import TabForEnquire from '../components/Vendor/TabForEnquire';
+import  PreviousEnquire  from '../components/Vendor/PreviousEnquires';
+import ConfirmedEnquire from '../components/Vendor/ConfirmedEnquire';
 
 const vendorRouter = () => {
   return (
@@ -24,7 +27,13 @@ const vendorRouter = () => {
         <Route path="/home" element={<VendorHome/>}/>
         <Route path="/information" element={<VendorInfo/>}/>
         <Route path='/project' element={<Project/>}/>
+        <Route element={<TabForEnquire/>}>
         <Route path="/Enquiries" element={<Enquiries/>}/>
+        <Route path="/PreviousEnquire" element={<PreviousEnquire/>}/>
+        <Route path="/confirmedEnquire" element={<ConfirmedEnquire/>}/>
+
+        </Route>
+        
         <Route path="/Chat" element={<Chat user={"venue"}/>}/>
         </Route>
         </Route>

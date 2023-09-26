@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { booking,changeBooking,acceptEnquire } from "../../service/vendorApi";
 import { toast,Toaster } from "react-hot-toast";
-import PreviousEnquires from "../../components/Vendor/PreviousEnquires";
-import ConfirmedEnquire from "../../components/Vendor/ConfirmedEnquire";
+// import PreviousEnquires from "../../components/Vendor/PreviousEnquires";
+// import ConfirmedEnquire from "../../components/Vendor/ConfirmedEnquire";
 
 const Enquiries = () => {
   const [data, setdata] = useState([]);
@@ -75,10 +75,10 @@ const modal=()=>{
 
   return (
     <div className="bg-white h-full p-5">
-      <div className="bg-rose-100 p-5 flex justify-between rounded-sm my-5">
+      {/* <div className="bg-rose-100 p-5 flex justify-between rounded-sm my-5">
         <div className="link-hover btn" onClick={()=>document.getElementById('my_modal_4').showModal()}>Previous Enquiries</div>
         <div className="link-hover btn" onClick={()=>document.getElementById('my_modal_8').showModal()} >Confirmed </div>
-      </div>
+      </div> */}
       <Toaster toastOptions={3000} />
       <div className="flex gap-4">
       {data?.map((item, index) => (
@@ -130,8 +130,8 @@ const modal=()=>{
         </div>
         ))}
       </div>
-      <PreviousEnquires/>
-      <ConfirmedEnquire/>
+      {/* <PreviousEnquires/>
+      <ConfirmedEnquire/> */}
     </div>
   );
 };

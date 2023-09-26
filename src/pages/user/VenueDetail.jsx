@@ -4,9 +4,11 @@ import { useDispatch } from "react-redux";
 
 import { venueDetail,sentMessage} from "../../service/UserApi";
 import Booking from "../../components/user/Booking";
+// import ErrorBoundary from"../user/ErrorBoundary"
 import { useLocation } from "react-router-dom";
 
 import {   useNavigate } from "react-router-dom";
+import Review from "./Review";
 
 
 const VenueDetail = () => {
@@ -54,19 +56,20 @@ showAlertError(dispatch,"user already in your list")
 
 
   return (
-    <div className="bg-slate-100 w-full h-screen pt-9">
-      <div className="container border border-primary h-screen shadow-sm mx-auto p-1">
-        <div className="grid grid-cols-2">
-          <div className=" mx-5   ">
-            <div className="">
+    <div className=" w-full pt-9">
+      <div className="container p-10 border border-primary h-full mb-10 shadow-sm mx-auto ">
+      {/* grid grid-cols-2 rounded */}
+        <div className=" flex justify-center flex-wrap">
+          <div className="   ">
+            <div className="w-fit p-5 mb-5  rounded-md shadow-2xl">
               {data.image ? (
                 <img
-                  className="object-cover mx-auto border max-h-96 max-w-2xl  object-center "
+                  className=" object-none object-center max-w-2xl rounded-md drop-shadow-lg   "
                   src={data.image[0] ?? ""}
                 ></img>
               ) : null}
               <div className="flex justify-center">
-                <h1 className="text-2xl">{data.name}</h1>
+                <h1 className="text-2xl capitalize">{data.name}</h1>
               </div>
             </div>
             <div className=" flex flex-col gap-2">
@@ -130,20 +133,10 @@ showAlertError(dispatch,"user already in your list")
             </div>
           </div>
         </div>
-        <div className="border flex mx-auto ">
-          <div className="carousel rounded-box">
-          {/* {data.image?.map((item,index)=>(
-            <div key={index} className="carousel-item">
-            <img
-              src={item}
-              alt="Burger"
-              className="w-25 h-25"
-            />
-          </div>
-           )) } */}
-           
-          </div>
-        </div>
+        {/* <ErrorBoundary fallback={<p>Something went wrong</p>}> */}
+         <Review venueid={id}/>
+         {/* </ErrorBoundary> */}
+        
       </div>
     </div>
   );

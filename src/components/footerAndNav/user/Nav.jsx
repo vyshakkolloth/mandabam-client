@@ -33,8 +33,10 @@ const Nav = () => {
               Profile
               </Link>
             </li>
-            <li onClick={handleLogout}>
+            <li  onClick={handleLogout}>
+              <Link>
               log Out
+              </Link>
             </li>
           </ul>
         </div>

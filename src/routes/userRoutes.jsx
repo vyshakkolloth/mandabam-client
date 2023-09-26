@@ -56,6 +56,7 @@ const userRoutes = () => {
         </Route>
         
         <Route path="/*"element={<Errors/>}/>
+        
         <Route path="/500" element={<ServerError/>}/>
       </Routes>
     </>

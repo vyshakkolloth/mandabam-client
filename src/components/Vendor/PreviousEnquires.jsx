@@ -35,8 +35,7 @@ const PreviousEnquires = () => {
     <div>
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
 {/* <button className="btn" >open modal</button> */}
-<dialog id="my_modal_4" className="modal">
-  <div className="modal-box w-11/12 max-w-5xl">
+
   <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -68,16 +67,9 @@ const PreviousEnquires = () => {
       
     </tbody>
   </table>
-</div>
-    <div className="modal-action">
-      <form method="dialog">
-        {/* if there is a button, it will close the modal */}
-        <button className="btn">Close</button>
-      </form>
-    </div>
   </div>
-</dialog>
-    </div>
+</div>
+
   )
 }
 

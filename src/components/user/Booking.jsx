@@ -9,6 +9,8 @@ import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import { useEffect } from "react";
 import { useState } from "react";
+import {BsFlagFill} from"@react-icons/all-files/bs/BsFlagFill"
+import ReportVenue from "./ReportVenue";
 const Booking = ({ venueid }) => {
   const dispatch = useDispatch();
   const [block, setblock] = useState([])
@@ -246,6 +248,12 @@ const Booking = ({ venueid }) => {
           </button>
         </div>
       </form>
+      <div
+      onClick={()=>document.getElementById('my_modal_1').showModal()}
+       className=" btn btn-ghost text-red-400 flex justify-center font-bold p-5">
+         <BsFlagFill/>Report User 
+         </div>
+        <ReportVenue venueId={venueid}/>
     </div>
   );
 };

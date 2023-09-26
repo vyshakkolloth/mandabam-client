@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
-import Googleauth from "../../components/user/googleauth";
+// import Googleauth from "../../components/user/googleauth";
 
 import { IoPersonCircle } from "@react-icons/all-files/io5/IoPersonCircle";
 import { IoCloseCircleSharp } from "@react-icons/all-files/io5/IoCloseCircleSharp";
@@ -166,7 +166,7 @@ const userLogin = () => {
               <div className="divider">OR</div>
 
               <div className=" flex m-auto">
-                <Googleauth />
+                {/* <Googleauth /> */}
               </div>
             </div>
             <div className=" m-8 flex ">
