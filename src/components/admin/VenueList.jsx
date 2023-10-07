@@ -8,6 +8,7 @@ const venueList = () => {
   const [loading, setloading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); 
+  const [searchQuery, setSearchQuery] = useState(""); 
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -27,18 +28,40 @@ const venueList = () => {
       setloading(!loading)
       console.log(res.data)})).catch((err)=>console.log(err))}
 
+      const handleSearchInputChange = (e) => {
+        setSearchQuery(e.target.value);
+      };
+    
+      // Function to filter data based on the search query
+      const filteredData = data.filter((user) =>
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
       const indexOfLastItem = currentPage * itemsPerPage;
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
       const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+      useEffect(() => {
+        setCurrentPage(1);
+      }, [searchQuery]);
+      
       
         const paginate = (pageNumber) => {
           setCurrentPage(pageNumber);
         };
 
   return (
-     <div className='pt-5'>
+     <div className=''>
+         <div className="flex p-5">
+        <input className="input-sm " placeholder="Search by name"
+          value={searchQuery}
+          onChange={handleSearchInputChange} ></input>
+        {/* <FaMagnifyingGlass/> */}
+
+
+      </div>
       <div className="overflow-x-auto h-[56vh]">
-        {currentItems.length > 0 ? (
+        {filteredData?.length > 0 ? (
           <table className="table">
             <thead>
               <tr>
@@ -51,15 +74,15 @@ const venueList = () => {
               </tr>
             </thead>
             <tbody>
-  {data.map((user, index) => (
+  {filteredData?.map((user, index) => (
     <tr key={index} className="hover" >
       <td>{index + 1}</td> {/* Display index + 1 */}
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>{user.mobile}</td>
-      <td>{user.isBanned ? "true" : "false"}</td>
+      <td>{user.isBanned ? "Banned" : "Not Banned"}</td>
       <td>
-        <button onClick={() => handleBlock(user._id)} className="btn btn-ghost btn-xs">button</button>
+        <button onClick={() => handleBlock(user._id)} className="btn btn-info btn-xs">Click</button>
       </td>
     </tr>
   ))}

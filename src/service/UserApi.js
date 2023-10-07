@@ -31,7 +31,7 @@ const config = {
       'Content-Type': 'multipart/form-data',
     },
   };
-const changeDp=(data)=>{ alert(); 
+const changeDp=(data)=>{ 
   return userAxiosInstance.post("/changeDp",data,config)}
 const forgotPassword=(data)=>userAxiosInstance.post("/forgotPassword",{data})
 const   sentMessage=(data)=>userAxiosInstance.post("/sentMessage",{data})
@@ -44,8 +44,9 @@ const bookedVenue=()=>userAxiosInstance.get("/bookedVenue")
 
 const postReview=(data)=>userAxiosInstance.post("/postReview",{data})
 const getReview=(id)=>userAxiosInstance.get(`/getReview/${id}`)
+const ReportVenues=(data)=>userAxiosInstance.post("/ReportVenue",{data})
 export{
     loginService,sentMessage,getUserMessage,bookedVenue,postReview,getReview,
-    signUpUser,PostuserMessage,paymentCreate,paymentVerify,datePicker,
+    signUpUser,PostuserMessage,paymentCreate,paymentVerify,datePicker,ReportVenues,
     venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword,userList,
 }

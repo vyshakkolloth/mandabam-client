@@ -10,7 +10,7 @@ const userLayout = () => {
     <Nav/>
     <Alert/>
    <Outlet/>
-   {/* <Footer/> */}
+   <Footer/>
     </>
   )
 }

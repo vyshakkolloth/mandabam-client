@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { userData ,blockUser} from "../../service/AdminApi";
 import {   useNavigate } from "react-router-dom";
+// import {FaMagnifyingGlass} from '@react-icons/all-files';
 
 const UserList = () => {
   const [data, setdata] = useState([]);
   const [loading, setloading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); 
-
+  const [searchQuery, setSearchQuery] = useState(""); 
 
   const navigate = useNavigate();
 
   useEffect(() => {
    if(localStorage.getItem("adminToken")){
+    fetch()
+   }else{
+   navigate("/admin")
+   }
+  }, [loading]);
+
+  const fetch=()=>{
     userData()
     .then((res) => {
       setdata(res.data.data);
@@ -22,10 +30,7 @@ const UserList = () => {
     .catch((error) => {
       console.error("Error fetching user data:", error);
     });
-   }else{
-   navigate("/admin")
-   }
-  }, [loading]);
+  }
 
   const handleBlock=(id)=>{
     blockUser(id).then((res=>{
@@ -33,10 +38,24 @@ const UserList = () => {
       console.log(res.data)}))
       .catch((err)=>console.log(err))
   }
+    // Function to handle search input change
+    const handleSearchInputChange = (e) => {
+      setSearchQuery(e.target.value);
+    };
+  
+    // Function to filter data based on the search query
+    const filteredData = data.filter((user) =>
+      user.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 // Calculate the indexes of the items to display on the current page
 const indexOfLastItem = currentPage * itemsPerPage;
 const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+
+useEffect(() => {
+  setCurrentPage(1);
+}, [searchQuery]);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -44,30 +63,39 @@ const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div>
+      <div className="flex justify-between p-5">
+        <input className="input-sm " placeholder="Search by name"
+          value={searchQuery}
+          onChange={handleSearchInputChange} ></input>
+        {/* <FaMagnifyingGlass/> */}
+
+    <img onClick={()=>fetch()} className=" glass rounded-xl btn btn-sm" src="/svg/refresh.svg"></img> 
+
+      </div>
       <div className="overflow-x-auto h-[50vh]  ">
-        {data.length > 0 ? (
+        {filteredData.length > 0 ? (
           <table className="table ">
             <thead>
-              <tr>
-                <th>index</th>
+              <tr className="bg-rose-400 rounded rounded-t-2xl text-black">
+                <th>Sl No.</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Mobile</th>
-                <th>status</th>
-                <th>option</th>
+                <th>Status</th>
+                <th>Option</th>
               </tr>
             </thead>
             <tbody>
               {currentItems?.map((user, index) => (
-                <tr key={index} className="hover">
+                <tr key={index} className="hover hover:to-blue-400">
                   {/* <th>{user._id}</th> */}
-                  <d>{index+1}</d>
+                  <td>{index+1}</td>
                   <td>{user?.name}</td>
                   <td>{user?.email}</td>
                   <td>{user?.phone}</td>
-                  <td>{user?.blocked ? "true" : "false"}</td>
+                  <td className="btn btn-link">{user?.blocked ? "Blocked" : "Not blocked"}</td>
                   <th>
-                    <button onClick={()=>handleBlock(user._id)} className="btn  glass btn-xs">button</button>
+                    <button onClick={()=>handleBlock(user._id)} className="btn btn-info btn-xs">Click</button>
                   </th>
                 </tr>
               ))}

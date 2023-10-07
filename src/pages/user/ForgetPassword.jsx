@@ -83,7 +83,7 @@ const ForgetPassword = () => {
     <>
      <Toaster toastOptions={3000} />
     {/* The button to open modal */}
-<label htmlFor="my_modal_5" className="btn">open modal</label>
+{/* <label htmlFor="my_modal_5" className="btn">open modal</label> */}
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my_modal_5" className="modal-toggle" />

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { adminVenueVerification } from '../../service/AdminApi'
+import { adminVenueVerification, aproveVender } from '../../service/AdminApi'
 import { useNavigate } from 'react-router-dom';
+import { toast,Toaster } from "react-hot-toast";
+// import VendorDetailedModal from '../../components/admin/VendorDetailedModal';
 
 
 const AdminVenuemanagemnt = () => {
@@ -36,29 +38,57 @@ const AdminVenuemanagemnt = () => {
     const paginate = (pageNumber) => {
       setCurrentPage(pageNumber);
     };
+
+    const handelClick = (id) => {
+      navigate("/details", { state: { query: id } });
+    };
+
+    const approveHandle=(id)=>{
+     try {
+      aproveVender(id).then((res=>{
+        if(res.status===200){
+          toast.success("approved")
+          fetch()
+        }
+        console.log(res)
+      })).catch((err)=>{
+        console.log(err)
+      })
+     } catch (error) {
+      console.log(error)
+     }
+    }
+
+
+
   return (
     <div className='pt-5'>
+      <Toaster toastOptions={3000} />
     <div className="overflow-x-auto h-[56vh]">
       {currentItems.length > 0 ? (
         <table className="table">
           <thead>
             <tr>
-              <th>index</th>
+              <th>Index</th>
               <th>Name</th>
               <th>Email</th>
               <th>Mobile</th>
-              <th>status</th>
+              <th>Status</th>
+               <th>Detais</th>
              
             </tr>
           </thead>
           <tbody>
 {data.map((user, index) => (
-  <tr key={index} className="hover" >
+  <tr key={index} className="hover capitalize" >
     <td>{index + 1}</td> {/* Display index + 1 */}
     <td>{user.name}</td>
     <td>{user.email}</td>
     <td>{user.mobile}</td>
-    <td>{user.isBanned ? "true" : "false"}</td>
+    <td>{user.adminAproved ? "true" : "false"}</td>
+    <td><button onClick={()=>handelClick(user._id)} >show Detailed </button></td>
+    <td><button onClick={()=>approveHandle(user._id)} className='btn btn-ghost glass text-green-400'> approve</button> </td>
+    
    
   </tr>
 ))}
@@ -88,6 +118,7 @@ const AdminVenuemanagemnt = () => {
             ))}
       </div>
   </div>
+  
   </div>
   )
 }

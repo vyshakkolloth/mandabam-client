@@ -14,7 +14,7 @@ const adminLayouts = () => {
   <div className="drawer-content "> 
   {/* //flex flex-col items-center justify-center */}
   <Nav/>
-  <div className='container mx-auto rounded-lg shadow-lg'>
+  <div className='container mx-auto rounded-lg shadow-xl '>
   <Outlet/>
   </div>
   

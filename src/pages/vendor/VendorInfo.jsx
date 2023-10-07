@@ -177,24 +177,24 @@ const handleTypeFilter = (event) => {
               placeholder="enter your comapany name"
             ></input>
           </div>
-          <div className="  my-2 flex justify-around items-center">
+          {/* <div className="  my-2 flex justify-around items-center">
          <label className=" text-gray-900 w-1/3 ">location</label>
            <input
               type="text"
               className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
               placeholder="enter your comapany name"
             ></input>
-          </div>
+          </div> */}
 
 
 
 
-          <div className="flex">
-                {/* Open the modal using document.getElementById('ID').showModal() method */}
+          {/* <div className="flex">
+                
                   <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button>
                   <LocationModal/>
                  
-          </div>
+          </div> */}
 
 
 

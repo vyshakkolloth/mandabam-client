@@ -65,10 +65,11 @@ const Booking = ({ venueid }) => {
     onSubmit: (values, { resetForm }) => {
       booking(values, venueid, "44545")
         .then((res) => {
+          resetForm();
           // const message=res.data.message
           console.log(res)
           if (res.data?.auth) {
-            resetForm();
+            // resetForm();
             showAlertSuccess(dispatch,"added sucessfully")
           } else {
             showAlertError(dispatch, " please Sign in");

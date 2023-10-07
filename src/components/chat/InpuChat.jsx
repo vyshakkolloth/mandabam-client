@@ -4,7 +4,11 @@ const InpuChat = ({handle}) => {
 
   const [message, setmessage] = useState("")
   const sendHandler=async()=>{
-    handle(message)
+    if(message==""){
+
+    }else{
+    handle(message) 
+  }
   }
   return (
     <div className='bg-white rounded-2xl p-5'>

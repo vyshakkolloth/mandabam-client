@@ -7,8 +7,10 @@ import UserManagment from '../pages/admin/UserManagment'
 import AdminVendorMangment from '../pages/admin/AdminVendorMangment'
 import VenueList from '../components/admin/VenueList'
 import AdminVenuemanagemnt from '../pages/admin/AdminVenuemanagemnt'
-import Members from "../pages/admin/membership"
 import Errors from '../components/errors/Errors'
+import ReportVenor from '../pages/admin/ReportVenor'
+import PaymentManagment from '../pages/admin/PaymentManagment'
+import BannerManagment from '../pages/admin/BannerManagment'
 
 const adminRouter = () => {
   return (
@@ -27,10 +29,11 @@ const adminRouter = () => {
             <Route element={<AdminVendorMangment/>}>
               <Route path="/venueList" element={<VenueList/>}/>
               <Route path="/VenderAcceptance" element={<AdminVenuemanagemnt/>}/>
-              <Route path="/VenueReporting" element={<Members/>}/>
+              <Route path="/VenueReporting" element={<ReportVenor/>}/>
 
             </Route>
-        {/* <Route path='/chat'element={<AdminVenuemanagemnt/>}/> */}
+        <Route path='/Payment'element={<PaymentManagment/>}/>
+        <Route path='/bannerManagemnt' element={<BannerManagment/>}/>
      
        
         </Route> </>

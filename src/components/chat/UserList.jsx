@@ -8,14 +8,14 @@ const UserList = ({user,setselected}) => {
   const [List, setlist] = useState([])
 
   const [filteredUserList, setFilteredUserList] = useState([]);
-const [sortOption, setSortOption] = useState(''); // Initialize with an empty string or default sort option.
+const [sortOption, setSortOption] = useState('name'); // Initialize with an empty string or default sort option.
 const [searchQuery, setSearchQuery] = useState('');
 
 
 const userlist= ()=>{
  try {
   userList().then((res)=>{
-    console.log(res.data.data[0].venue.name);
+    console.log(res.data);
     setlist(res.data.data)
   }).catch((err)=>{
     console.log(err,"error");
@@ -29,7 +29,7 @@ const venueList=()=>{
     msguserList()
     .then((res)=>{
       setlist(res.data.data)
-      // console.log(res,"venuList")
+      console.log(res,"venuList")
     }
       )
     .catch((err)=>{console.log(err,"venulisterr")})
@@ -75,15 +75,36 @@ const sortUsers = () => {
   const sortedList = [...filteredUserList]; // Create a copy of the filtered list.
   switch (sortOption) {
     case 'name':
-      sortedList.sort((a, b) => a.name.localeCompare(b.name));
+    
+      user==="user"?sortedList.sort((a, b) => a.venue?.name.localeCompare(b.name)):sortedList.sort((a, b) => a.user?.name.localeCompare(b.name))
+      
       break;
     case 'time':
-      // Implement your custom sorting logic for time if needed.
+      sortedList.sort((a, b) => {
+        // Get the latest message timestamp for user a
+        const timestampA = a.messages.length > 0 ? a.messages[a.messages.length - 1].timestamp : null;
+    
+        // Get the latest message timestamp for user b
+        const timestampB = b.messages.length > 0 ? b.messages[b.messages.length - 1].timestamp : null;
+    
+        // Compare the timestamps
+        if (timestampA && timestampB) {
+          return timestampB - timestampA; // Sort in descending order (latest first)
+        } else if (timestampA) {
+          return -1; // a has messages, but b doesn't, so a comes first
+        } else if (timestampB) {
+          return 1; // b has messages, but a doesn't, so b comes first
+        } else {
+          return 0; // Both have no messages or timestamps, no preference
+        }
+        });
+      
       break;
     default:
       // No sorting or default sorting logic.
       break;
   }
+  console.log(sortedList,"sorted")
   setFilteredUserList(sortedList);
 };
 
@@ -99,6 +120,14 @@ useEffect(() => {
 const selectedHandle=(select)=>{
   setselected(select)
  
+}
+const sortbyname=()=>{
+  setSortOption("name")
+  sortUsers();
+}
+const sortbytime=()=>{
+  setSortOption("time")
+  sortUsers();
 }
 
 
@@ -122,8 +151,8 @@ const selectedHandle=(select)=>{
       <div className="dropdown dropdown-right mx-1">
   <label tabIndex={0} className="btn "> ...</label>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li>sort by name</li>
-    <li>sort by time</li>
+    <li onClick={()=>sortbyname()}>sort by name</li>
+    <li onClick={()=>sortbytime()}>sort by time</li>
   </ul>
 </div>
 

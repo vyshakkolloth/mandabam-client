@@ -127,7 +127,7 @@ const VendorSignin = () => {
               className="bg-white py-2 mt-5 border-b border-green-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
               placeholder="Enter password"
             />
-            {!verify?(<button
+            {verify?(<button
               type="submit"
               onClick={handelsignup}
               className="btn bg-blue-500 outline-none font-semibold text-white"

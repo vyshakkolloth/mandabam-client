@@ -74,11 +74,11 @@ showAlertSuccess(dispatch,"otp verified")
   };
   //  time intervall
 
-  const [seconds, setSeconds] = useState(20);
+  const [seconds, setSeconds] = useState(60);
   const countdownIntervalRef = useRef(null);
   useEffect(() => {
     if (screen) {
-      setSeconds(20);
+      setSeconds(60);
       if (seconds > 0) {
         const decrementSeconds = () => {
           setSeconds((prevSeconds) => prevSeconds - 1);

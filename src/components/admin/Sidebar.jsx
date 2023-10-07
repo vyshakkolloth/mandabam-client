@@ -12,7 +12,11 @@ const Sidebar = () => {
       <li><Link to="/admin/home">AdminHome</Link></li>
       <li> <Link to="/admin/user">User Managment</Link></li>
       <li> <Link to="/admin/venueList">VendorManagment</Link></li>
+      <li> <Link to="/admin/Payment">Payment Managment</Link></li>
+      <li> <Link to="/admin/bannerManagemnt">Banner Managment</Link></li>
+
       
+     
       
       
     </ul>

@@ -72,12 +72,12 @@ const userLogin = () => {
 
   return (
     <>
-      <section className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <section className="bg-gray-200 h-full min-w-min flex items-center justify-center ">
         {/* login container */}
-        <div className="bg-cyan-100 flex shadow-lg max-w-3xl">
+        <div className="bg-cyan-100 h-3/5 flex shadow-lg max-w-2xl">
           {/* image */}
           <div className="w-1/2 p-5 sm:block hidden">
-            <img className="rounded-2xl" src="/images/logIn.png" alt="" />
+            <img className="rounded-2xl h-full object-cover" src="/images/01.jpg" alt="" />
           </div>
 
           {/* form */}
@@ -154,10 +154,10 @@ const userLogin = () => {
               <label>
                 Sign in Already ?{" "}
                 <Link to={"/signUp"}>
-                  <span className="mx-2 text-blue-700 font-bold"> SIGN UP</span>
+                  <span className="mx-2 text-blue-700 font-bold link"> SIGN UP</span>
                 </Link>
               </label>
-              <label htmlFor="my_modal_5" className="">Forget Password?</label>
+              <label htmlFor="my_modal_5" className=" link">Forget Password?</label>
 
 
               <div id="sign-in-button"></div>
@@ -169,8 +169,8 @@ const userLogin = () => {
                 {/* <Googleauth /> */}
               </div>
             </div>
-            <div className=" m-8 flex ">
-              <p className="te"> Are you a vendor?</p>
+            <div className=" m-2 flex ">
+              <p className="text-sm"> Are you a vendor?</p>
               {/* <Link to="/venue"> */}
               <button
                 onClick={() => {

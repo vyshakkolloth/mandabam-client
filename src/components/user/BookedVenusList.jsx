@@ -35,7 +35,7 @@ const BookedVenusList = () => {
       };
 
   return (
-    <div className='container mx-auto mt-10'>
+    <div className='container mx-auto mt-10 h-[56vh]'>
         <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
