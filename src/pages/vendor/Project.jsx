@@ -29,7 +29,7 @@ const Project = () => {
     }
   };
   const upload =()=>{
-    if(selectedImages){
+    if(selectedImages.length>0){
       // console.log(selectedImages,"4545")
       try {
         const formData = new FormData();
@@ -45,6 +45,7 @@ const Project = () => {
             if(res.status===200){
               toast.success("upload success")
               getimage()
+              setUploadedFiles([])
             }
           }).catch((err)=>{
             console.log(err,"err")
@@ -57,7 +58,7 @@ const Project = () => {
       }
 
     }else{
-      alert("select image")
+      toast.error("select image")
     }
   }
 
@@ -138,7 +139,7 @@ const Project = () => {
 
 
 
-      {/* <div className='bg-red-500 mt-5 p-5 grid'> */}<div className='bg-rose-100 rounded flex gap-5 mx-10 p-5 h-full'>
+      {/* <div className='bg-red-500 mt-5 p-5 grid'> */}<div className='bg-rose-100 rounded flex flex-wrap gap-5 mx-10 p-5 h-full'>
         {
           files.map((image, index)=> (
             <div key={index} className="avatar indicator">
@@ -148,9 +149,7 @@ const Project = () => {
             </div>
           
           
-            {/* <div key={index} className='image-item'>
-              <img src={image} alt={`Image ${index}`} className='w-full h-auto' />
-            </div> */}
+        
             </div>))
         }
         

@@ -53,10 +53,12 @@ const home = () => {
   {/* <div className="hero-overlay bg-opacity-10"></div> */}
   <div className="hero-content text-center text-neutral-content ">
     <div className="max-w-md text-white" >
-      <h1 className="mb-5 text-5xl font-bold">Plan your wedding with Us</h1>
-      <p className="mb-5">Mandabam.com is an Indian Wedding Planning Website  where you can find the best wedding 
+      <h1 data-aos="zoom-in" className="mb-5 text-5xl font-bold">Plan your wedding with Us</h1>
+      <p data-aos="zoom-in" className="mb-5">Mandabam.com is an Indian Wedding Planning Website  where you can find the best wedding 
       venues, with prices and reviews at the click of a button. Whether you are looking to hire wedding planners in India,
       </p>
+     
+      
       
       <div className="flex  ">
     <div className=" mx-auto  p-4  bg-red rounded flex border-none">
@@ -75,7 +77,7 @@ const home = () => {
        {/* <div onClick={handleClick} className='bg-rose-500 py-4 px-6'><FaSearchLocation/></div> */}
     </div>
   </div>
-  <button onClick={handleClick} className="btn btn-primary">Get Started</button>
+  <button onClick={handleClick} className="btn ">Get Started</button>
     </div>
   </div>
 </div>

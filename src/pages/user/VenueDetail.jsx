@@ -56,9 +56,9 @@ showAlertError(dispatch,"user already in your list")
 
 
   return (
-    <div className=" w-full pt-9">
-      <div className="container p-10 border border-primary h-full mb-10 shadow-sm mx-auto ">
-      {/* grid grid-cols-2 rounded */}
+    <div className=" ">
+      <div className="container p-10 border  h-full mb-10 shadow-2xl mx-auto ">
+     
         <div className=" flex justify-center flex-wrap">
           <div className="   ">
             <div className="w-fit p-5 mb-5  rounded-md shadow-2xl">
@@ -103,7 +103,7 @@ showAlertError(dispatch,"user already in your list")
             </div>
           </div>
 
-          <div className="bg-white border shadow-sm p-2">
+          <div className="gradient-bg bg-gradient-to-b from-white to-pink-200 rounded-t-lg  bg-blur-sm glass shadow-sm p-2">
             <div tabIndex={0} className="collapse collapse-arrow  bg-white">
               <div className="collapse-title text-xl font-medium border-b-2">
                 <p>Starting Price</p>
@@ -134,7 +134,7 @@ showAlertError(dispatch,"user already in your list")
           </div>
         </div>
         {/* <ErrorBoundary fallback={<p>Something went wrong</p>}> */}
-         <Review venueid={id}/>
+         <Review names={data} venueid={id}/>
          {/* </ErrorBoundary> */}
         
       </div>

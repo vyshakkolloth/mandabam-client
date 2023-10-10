@@ -89,56 +89,30 @@ const sortRecordsByName = (recordsToSort) => {
       </div>
 
       {display===true?(
- <div className="   h-[80vh] p-4 border grid grid-cols-3 gap-4 border-b-2 border-pink-600 overflow-auto ">
+ <div className="   max-h-[80vh]  flex flex-wrap justify-between gap-2  overflow-y-scroll ">
    {/* // grid grid-cols-3 gap-4 flex flex-wrap */}
  {sortRecordsByName(records)?.map((item, index) => (
 
-<div key={index} class="max-w-md mx-auto bg-white shadow-lg h-fit rounded-xl  overflow-hidden md:max-w-2xl">
-  <div class="md:flex" onClick={() => handelClick(item._id)}>
-    <div class="md:shrink-0">
-      <img class="h-48 w-full object-cover md:h-full md:w-48"  src={item.image[0]} alt="Modern building architecture"/>
-    </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{item?.name}</div>
-      <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{item?.location}</p>
-      <p class="mt-2 text-slate-500">{item?.type}</p>
-    </div>
-  </div>
-</div>
-  
-  //  <div key={index} className=" w-fit">
-  //    <div className="card w-96 glass">
-  //      <figure>
-  //        <img className="w-50 h-50" src={item.image[0]} alt="car!" />
-  //      </figure>
-  //      <div className="card-body">
-  //        <h2 className="card-title">{item?.name} <span> Location:{item?.location}</span></h2>
-  //        <p>{item?.type}</p>
-  //        <div className="card-actions justify-end">
-  //          <button
-  //            onClick={() => handelClick(item._id)}
-  //            className="btn btn-primary"
-  //          >
-  //            Learn now!
-  //          </button>
-  //        </div>
-  //      </div>
-  //    </div>
-  //  </div>
+
+
+      <div key={index} className="card w-96 max-h-96 bg-base-100 shadow-2xl hover:cursor-grabbing ">
+        <figure><img className="img"  src={item.image[0]}  alt="Shoes" />
+        </figure>
+        <div className="card-body"> <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{item?.name}</div>
+        <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{item?.location}</p>
+          <p class="mt-2 text-slate-500">{item?.type}</p>
+
+          <div className="card-actions justify-end">
+            <button  onClick={() => handelClick(item._id)} className="btn btn-info"> Explore </button>
+          </div>
+        </div>
+      </div>
+      
+        
+ 
  ))}
 
-{/* <div class="max-w-md mx-auto bg-white h-fit rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-  <div class="md:flex">
-    <div class="md:shrink-0">
-      <img class="h-48 w-full object-cover md:h-full md:w-48" src="/images/07.jpg" alt="Modern building architecture"/>
-    </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
-      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
-    </div>
-  </div>
-</div> */}
+
 
 
 

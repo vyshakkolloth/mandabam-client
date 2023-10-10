@@ -65,11 +65,12 @@ const venueList = () => {
           <table className="table">
             <thead>
               <tr>
-                <th>index</th>
+                <th>Index</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Mobile</th>
-                <th>status</th>
+                <th>Status</th>
+                <th>Verified </th>
                 <th>option</th>
               </tr>
             </thead>
@@ -81,6 +82,7 @@ const venueList = () => {
       <td>{user.email}</td>
       <td>{user.mobile}</td>
       <td>{user.isBanned ? "Banned" : "Not Banned"}</td>
+      <td>{user.adminAproved ? "Aprroved" : "Not Approved"}</td>
       <td>
         <button onClick={() => handleBlock(user._id)} className="btn btn-info btn-xs">Click</button>
       </td>

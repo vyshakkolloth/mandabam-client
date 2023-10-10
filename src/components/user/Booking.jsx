@@ -82,12 +82,13 @@ const Booking = ({ venueid }) => {
     validationSchema: Yup.object({
       name: Yup.string("must be letters")
         .max(15, "must be 15 char or less")
-        .required("required"),
+        .required("Name is required"),
       email: Yup.string()
         .email("Invalid email format")
         .required("Email is required"),
       guest: Yup.number().required("Number of guests is required"),
       type: Yup.string().required("Function Type is required"),
+      time: Yup.string().required("Function Time is required"),
       Phone: Yup.number()
         .required("Phone number is required")
         .integer("Phone number must be an integer")
@@ -169,9 +170,13 @@ const Booking = ({ venueid }) => {
                 checked={formik.values.type === "wedding"}
               />
               <label>wedding</label>
+              
             </div>
+            {formik.errors.type && formik.touched.type ? (
+                <label className="text-red-600">{formik.errors.type}</label>
+              ) : null}
           </div>
-          <div className="bg-white p-2">
+          <div className=" p-2">
             <div className="">
               <input
                 type="number"
@@ -191,15 +196,7 @@ const Booking = ({ venueid }) => {
              value={formik.values.date} minDate={new Date()}  onBlur={formik.handleBlur} tileDisabled={({ date }) => isDateDisabled(date)} />
 
 
-              {/* <input
-                type="date"
-                className="flex border-b-2 bg-white "
-                values={formik.values.date}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-                name="date"
-                placeholder="*Function date"
-              ></input> */}
+
               {formik.errors.date && formik.touched.date ? (
                 <label className="text-red-600">{formik.errors.date}</label>
               ) : null}
@@ -219,8 +216,8 @@ const Booking = ({ venueid }) => {
                 <label className="text-red-600">{formik.errors.rooms}</label>
               ) : null}
             </div>
-            <div className="mt-2">
-              <label className="text-black flex">Function Type</label>
+            <div className="mt-2 align-middle">
+              <label className="text-black flex">Function Time</label>
               <input
                 type="radio"
                 name="time"
@@ -240,6 +237,9 @@ const Booking = ({ venueid }) => {
               />
               <label>Day</label>
             </div>
+            {formik.errors.time && formik.touched.time ? (
+                <label className="text-red-600">{formik.errors.time}</label>
+              ) : null}
           </div>
         </div>
         <div className="flex justify-center">
@@ -256,6 +256,7 @@ const Booking = ({ venueid }) => {
          </div>
         <ReportVenue venueId={venueid}/>
     </div>
+    
   );
 };
 

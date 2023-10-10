@@ -6,7 +6,7 @@ import { getReview, postReview } from '../../service/UserApi';
 import { useNavigate } from 'react-router-dom';
 import {IoPersonCircleOutline} from "@react-icons/all-files/io5/IoPersonCircleOutline"
 
-const Review = ({venueid}) => {
+const Review = ({names,venueid}) => {
   const [data, setdata] = useState([])
   const navigate=useNavigate()
   useEffect(() => {
@@ -84,12 +84,12 @@ const Review = ({venueid}) => {
     <div className="container bg-rose-100 mt-5 mx-auto">
        <Toaster toastOptions={3000} />
       <div className='flex capitalize justify-start text-right p-4 font-medium border-b-2 border-black'>
-        Reviews for mandabam{''} auditorium( {'2'})
+        Reviews for {names.name} auditorium( {data?.length})
       </div>
       <div className='flex flex-wrap pt-2 pb-5 border border-b-black'>
         <div className='px-5 capitalize '>
           <form onSubmit={formik.handleSubmit}>
-            <p className='font-medium my-5'>Review mondabam Auditoriium </p>
+            <p className='font-medium my-5'>Review {names.name} Auditoriium </p>
             <p className='mb-5'>Rate Vendor* </p>
             <div className="rating rating-md flex mb-5">
               {[1, 2, 3, 4, 5].map((value) => (

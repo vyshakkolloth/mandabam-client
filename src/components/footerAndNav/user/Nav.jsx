@@ -54,7 +54,7 @@ const Nav = () => {
     //     </Link>
     //   )}
     // </div>
-    <div className="navbar  bg-pink-400   z-50 glass "> 
+    <div data-aos="zoom-in" className="navbar  bg-pink-400   z-50   glass "> 
   <div className="flex-none">
   <Link to="/">
     {/* <span className=" normal-case text-xl"> */}
