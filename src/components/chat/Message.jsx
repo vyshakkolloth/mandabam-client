@@ -12,7 +12,7 @@ const Message = ({selected,user}) => {
 
 // socket config
   useEffect(() => {
-    const newSocket =io.connect("http://localhost:4000/")
+    const newSocket =io.connect( import.meta.env.VITE_BASE_URL)
     setSocket(newSocket);
     return () => {
       if (newSocket) newSocket.disconnect();
