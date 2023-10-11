@@ -37,7 +37,7 @@ const Request = () => {
    
   return (
     <>
-    <div className="bg-white h-screen p-5">
+    <div className="bg-white h-[75vh] p-5">
       <Toaster toastOptions={3000} />
       <div className="flex gap-4">
         {data?.length!==0?(data?.map((item, index) => (
