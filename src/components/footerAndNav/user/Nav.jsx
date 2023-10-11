@@ -6,11 +6,14 @@ import { logout } from "../../../redux/user";
 import { FaUserCircle } from "@react-icons/all-files/fa/FaUserCircle";
 
 const Nav = () => {
+  const navigate=useNavigate
   const dd = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleLogout = () => {
     localStorage.removeItem("userToken");
     dispatch(logout());
+    navigate("/")
+
   };
   return (
     // <div className=" navbar pt-5  bg-pink-700    text-white flex justify-around  z-30">

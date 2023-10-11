@@ -59,7 +59,7 @@ const userLogin = () => {
           } else if (res.data.status === 401) {
             setLoading(false);
 
-            toast.success(res.data.message);
+            toast.error(res.data.message);
           }
         })
         .catch((err) => {
@@ -93,7 +93,7 @@ const userLogin = () => {
                   name="email"
                   onChange={(e) => {
                     setemail(e.target.value);
-                    const result = patternEmail.test(email);
+                    const result = patternEmail.test(email.trim());
     if (result) {
       setlabel(false);
       setdisable(false);
