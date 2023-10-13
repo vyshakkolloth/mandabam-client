@@ -121,7 +121,7 @@ const Profile = () => {
         </form>
         </div>
       </div>
-      <div className="collapse bg-base-200 mt-2">
+      {/* <div className="collapse bg-base-200 mt-2">
         <input type="radio" name="my-accordion-1" />
         <div className="collapse-title text-xl font-medium">
           Email change
@@ -129,7 +129,7 @@ const Profile = () => {
         <div className="collapse-content">
           <p>hello</p>
         </div>
-      </div>
+      </div> */}
  <Filemodal/>
 
 

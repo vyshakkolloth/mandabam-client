@@ -67,7 +67,7 @@ const Request = () => {
         </div>
         </>
         ))):(  <div
-          className="hero min-h-screen"
+          className="hero min-h-[60vh]"
           style={{ backgroundImage: 'url("/images/ResultNotFound.jpg")' }}
         >
           <div className="hero-overlay bg-opacity-10"></div>

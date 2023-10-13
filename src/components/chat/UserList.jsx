@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import {userList} from "../../service/UserApi"
 import {msguserList} from "../../service/vendorApi"
-// import{ usesele}
+import{ useSelector } from "react-redux"
 
 
 const UserList = ({user,setselected}) => {
+  let dd
+  if(user==="user"){ dd = useSelector((state) => state.user);}
+  else{ dd = useSelector((state) => state.vendor)}
   const [List, setlist] = useState([])
+  const [data, setdata] = useState()
 
   const [filteredUserList, setFilteredUserList] = useState([]);
 const [sortOption, setSortOption] = useState('name'); // Initialize with an empty string or default sort option.
@@ -130,7 +134,7 @@ const sortbytime=()=>{
   sortUsers();
 }
 
-
+console.log(filteredUserList)
 
   return (
  
@@ -139,10 +143,10 @@ const sortbytime=()=>{
        <div className='  p-2 flex items-center '>
               <div className="avatar online">
                   <div className="w-8 rounded-full">
-                    <img src="https://res.cloudinary.com/djrtauheh/image/upload/v1693815968/e0lw1ndmesjdbkxc70n8.png" />
+                    <img src={user==="user"?dd?.value?.image:dd.value.image[0]} />
                   </div>
               </div>
-              <div className='mx-5'> vyshak kolloth </div>
+              <div className='mx-5'> {dd?.value?.name} </div>
       </div>
       <div className='bg-rose-400  p-2 flex items-center '>
       <input type="text" placeholder="Type here" className="input rounded-md w-full max-w-xs"  value={searchQuery}
@@ -167,7 +171,7 @@ const sortbytime=()=>{
  
 <div className="avatar online">
             <div className="w-12 rounded-full">
-             <img  onClick={()=>{selectedHandle(iteam)}} className='scale-125' src={user==="user"?iteam?.venue.image[0]:iteam ?.user.image}  />  {/*  //*/}
+             <img  onClick={()=>{selectedHandle(iteam)}} className='scale-125' src={user==="user"?iteam?.venue.image[0]:iteam?.user.image}  />  {/*  //*/}
             </div>
         </div>
         <div className='flex-row  w-full border-b-2 border-rose-500 mx-1'>
