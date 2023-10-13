@@ -68,8 +68,9 @@ console.log(data,"dfdf")
   </div>
   
 </div>
-<div className=''> 
-    <Graph graphdata={graphData} venue={venuegra} />
+<div className='flex'> 
+    <Graph graphdata={graphData}  name={"user Registration"}/>
+    <Graph graphdata={venuegra} name={"venue Registration"}  />
 </div>
       
     </div>

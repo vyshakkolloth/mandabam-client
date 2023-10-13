@@ -3,7 +3,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,
   Legend, } from 'recharts';
 
 
-const Graph = ({graphdata,venue}) => {
+const Graph = ({graphdata,name}) => {
 
   const formatMonthName = (monthNumber) => {
     const monthNames = [
@@ -23,7 +23,7 @@ const Graph = ({graphdata,venue}) => {
     return monthNames[monthNumber - 1]; // JavaScript months are 0-based
   };
   return (
-    <div className="p-5 flex justify-end">
+    <div className="">
     
     
     <LineChart width={600} height={300} data={graphdata}>
@@ -36,15 +36,15 @@ const Graph = ({graphdata,venue}) => {
           type="monotone"
           dataKey="count"
           stroke="#8884d8"
-          name="User Registrations"
+          name={name}
         />
-         <Line
+         {/* <Line
           type="monotone"
           dataKey="anotherCount"
           stroke="#82ca9d"
           name="venue Registration"
           data={venue} // Pass the new data
-        />
+        /> */}
       </LineChart>
     </div>
     
