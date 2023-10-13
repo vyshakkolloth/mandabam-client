@@ -165,7 +165,7 @@ const handleTypeFilter = (event) => {
               placeholder="enter your comapany name"
             ></input> */}
           </div>
-          <div className=" my-2 flex justify-around items-center">
+          {/* <div className=" my-2 flex justify-around items-center">
             <label className=" text-gray-900 w-1/3 ">
               city*(chose your base city here)
             </label>
@@ -176,7 +176,7 @@ const handleTypeFilter = (event) => {
               className=" bg-white w-2/3 focus:outline-none focus:ring-2 rounded-sm p-1 border mx-1 "
               placeholder="enter your comapany name"
             ></input>
-          </div>
+          </div> */}
           {/* <div className="  my-2 flex justify-around items-center">
          <label className=" text-gray-900 w-1/3 ">location</label>
            <input

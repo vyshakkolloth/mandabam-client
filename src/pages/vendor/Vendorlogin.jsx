@@ -24,7 +24,7 @@ const adminLogin = () => {
         if(res.data.status==200){
           localStorage.setItem("venderToken",res.data.token)
           dispatch(vlogin(res.data.result))
-          navigate("/venue/home")
+          navigate("/venue/information")
           console.log(res.data)
           
           

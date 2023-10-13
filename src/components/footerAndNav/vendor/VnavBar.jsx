@@ -26,7 +26,7 @@ const VnavBar = () => {
   </div>
  
   <div className="navbar-center">
-  <Link to="/venue/home">  <div className="btn btn-ghost normal-case text-xl">Mandabam .com</div></Link>
+  <Link to="/venue/information">  <div className="btn btn-ghost normal-case text-xl">Mandabam .com</div></Link>
   </div>
  
    <div className="navbar-end">

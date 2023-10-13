@@ -21,7 +21,7 @@ const adminLogin = () => {
         if(res.data.status==200){
           localStorage.setItem("adminToken",res.data.token)
           dispatch(login(res.data.result))
-          navigate("/admin/home")
+          navigate("/admin/home/")
         }else{
           toast.error(res.data.message)
         }

@@ -24,7 +24,7 @@ const vendorRouter = () => {
         <Route element={<VendorLayouts/>}>
         
        
-        <Route path="/home" element={<VendorHome/>}/>
+        {/* <Route path="/home" element={<VendorHome/>}/> */}
         <Route path="/information" element={<VendorInfo/>}/>
         <Route path='/project' element={<Project/>}/>
         <Route element={<TabForEnquire/>}>

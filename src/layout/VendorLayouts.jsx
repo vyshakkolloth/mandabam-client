@@ -24,9 +24,9 @@ const VendorLayouts = () => {
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
-      <li><Link to="/venue/home">Home</Link></li>
-      <li><Link to="/venue/information">information</Link></li>
-      <li><Link to="/venue/project"> project </Link></li> 
+      {/* <li><Link to="/venue/home">Home</Link></li> */}
+      <li><Link to="/venue/information">Information</Link></li>
+      <li><Link to="/venue/project"> Project </Link></li> 
       <li><Link to="/venue/Enquiries"> Enquiries</Link></li>
       <li><Link to="/venue/Chat"> Chat</Link></li>
      
