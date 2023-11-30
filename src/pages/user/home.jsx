@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {  City } from "country-state-city";
 import Selector from "../../components/Vendor/Selector"; // Make sure this path is correct
 import { FaStore } from '@react-icons/all-files/fa/FaStore';
-import { FaSearchLocation } from '@react-icons/all-files/fa/FaSearchLocation';
+// import { FaSearchLocation } from '@react-icons/all-files/fa/FaSearchLocation';
 import { getBanner } from '../../service/AdminApi';
 const home = () => {
   const navigate = useNavigate()
@@ -41,6 +41,22 @@ const home = () => {
         console.log(error)
     }
 }
+useEffect(() => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var userLocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      // alert(userLocation.lat)
+      // Use userLocation to perform location-based search.
+    });
+  } else {
+    // Handle the case where geolocation is not available.
+    // alert()
+  }
+}, [])
+
 
 
   return (

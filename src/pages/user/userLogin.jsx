@@ -103,7 +103,7 @@ const userLogin = () => {
     } 
                     
                   }}
-                  placeholder="Enter your mobile number"
+                  placeholder="Enter your Email ID"
                   className="grow  pl-1 focus:outline-none bg-white py-1 "
                   type="text"
                   value={email}
