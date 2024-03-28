@@ -93,15 +93,15 @@ const userLogin = () => {
                   name="email"
                   onChange={(e) => {
                     setemail(e.target.value);
-                    const result = patternEmail.test(email.trim());
-    if (result) {
-      setlabel(false);
-      setdisable(false);
-    } else {
-      setdisable(true);
-      setlabel(true);
-    } 
-                    
+                    const result = patternEmail.test(e.target.value.trim());
+                        if (result) {
+                          setlabel(false);
+                          setdisable(false);
+                        } else {
+                          setdisable(true);
+                          setlabel(true);
+                        } 
+                                        
                   }}
                   placeholder="Enter your Email ID"
                   className="grow  pl-1 focus:outline-none bg-white py-1 "

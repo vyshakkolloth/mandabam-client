@@ -120,22 +120,7 @@ useEffect(() => {
 
   </div> 
 ))}
-  {/* <div className="carousel-item">
-   
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-  <div className="md:flex">
-    <div className="md:shrink-0">
-      <img className="h-48 w-full object-cover md: md:w-48" src="/images/RKS02577.jpg" alt="Modern building architecture"/>
-    </div>
-    <div className="p-8">
-      <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Mandabam .com</div>
-      <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Intimate Wedding Planned By The Bride's Mother With Just The Right Amount Of Bling!</a>
-      <p className="mt-2 text-slate-500">An intimate wedding with the closest ones on the guest-list, a food station boast</p>
-    </div>
-  </div>
-</div>
 
-  </div>  */}
  
    <div className="carousel-item ">
     
@@ -157,9 +142,23 @@ BY Aakanksha|21 Feb, 2019|1028 views|</p>
 
 
 
-<div className=''>
-
-</div>
+<section>
+            <div className="pb-36">
+                <div className="mx-auto px-6 max-w-6xl text-gray-500">
+                    <div className="text-center">
+                        <h2 className="text-3xl text-gray-950 dark:text-white font-semibold">Built by the Community <br/> for the Community</h2>
+                        <p className="mt-6 text-gray-700 dark:text-gray-300">Harum quae dolore orrupti aut temporibus ariatur.</p>
+                    </div>
+                    <div className="mt-12 max-w-lg mx-auto flex justify-center flex-wrap gap-3">
+                        {[1,2,3,4,5,6,7,8,9,10].map(index => (
+                            <a key={index} href="https://github.com/meschacirung" target="_blank" title="Méschac Irung" className="size-16 rounded-full border border-gray-950/5 dark:border-white/5">
+                                <img alt="John Doe" src={`https://randomuser.me/api/portraits/men/${index}.jpg`} className="rounded-full" loading="lazy" width="120" height="120"/>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
 
 </div> 
 

@@ -58,7 +58,7 @@ const [ids, setid] = useState()
     <tbody>
       {/* row 1 */}
      {data?.map((item,index)=>(
-         <tr>
+         <tr key={index}>
          <th>
            <label>
              <input type="checkbox" className="checkbox" />

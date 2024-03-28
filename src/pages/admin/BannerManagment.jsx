@@ -78,12 +78,12 @@ const BannerManagment = () => {
  
   
 {data?.map((item,index)=>(
-      <div className="carousel-item indicator">
-        <span className="indicator-item badge badge-primary" onClick={()=>deleteHandle(item._id)}>Delete </span> 
+      <div key={index} className="carousel-item indicator">
+        <span className="indicator-item badge badge-primary z-20" onClick={()=>deleteHandle(item._id)}>Delete </span> 
       {/* <img className=' object-cover h-25 w-25' src="/images/Banner.png" alt="Burger" /> */}
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
     <div className="md:flex">
-      <div className="md:shrink-0">
+      <div className="md:shrink-0 ">
         <img className="h-48 w-full object-cover md:h-full md:w-48" src={item.Image} alt="Modern building architecture"/>
       </div>
       <div className="p-8">
