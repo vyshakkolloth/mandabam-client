@@ -2,15 +2,17 @@ import React from "react";
 import Shimmer from "../components/admin/Shimmer";
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-const UserLogin =lazy(()=>import( "../pages/user/userLogin"))
 import UserHome from "../pages/user/home";
 import UserLayout from "../layout/userLayout";
 import UserProfileLayout from "../layout/userProfileLayout";
+
+const UserLogin =lazy(()=>import( "../pages/user/userLogin"))
 const  UserSIgnin =lazy(()=>import( "../pages/user/UserSIgnin"))
 const  VenueDetail =lazy(()=>import(  "../pages/user/VenueDetail"))
 const  Profile =lazy(()=>import(  "../pages/user/Profile"))
 const  Request =lazy(()=>import(  "../pages/user/Request"))
 const SearchResult =lazy(()=>import( "../pages/user/SearchResult"))
+
 import Errors from "../components/errors/Errors"
 import ServerError from "../components/errors/ServerError";
 import PrivateRoutes from "../ProtectectedRoute/PrivateRoutes";
