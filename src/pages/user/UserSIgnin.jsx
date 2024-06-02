@@ -116,7 +116,7 @@ const handelsignup = () => {
             />
           </div>
             
-            {!verify?( <button
+            {verify?( <button
                 type="submit"
                 onClick={handelsignup}
                 className=" rounded justify-center p-5 bg-blue-500 outline-none font-semibold text-white"
