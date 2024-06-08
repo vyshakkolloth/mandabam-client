@@ -20,6 +20,8 @@ const handleSubmit=()=>{
   if(name==""||email==""||phone==""||password=="")
   {
     toast.error("fill the field")
+  }else if(name.length<4){ toast.error("name length should be greater than 5")
+
   }
   else{
     const data={name,email,password,phone}
@@ -79,6 +81,7 @@ const handelsignup = () => {
           <input
               type="text"
               value={name}
+              pattern="/\s/g"
               onChange={(e)=>{setname(e.target.value)}}
               className="bg-white py-2  border-b border-green-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
               placeholder="please write your Name"
@@ -110,6 +113,7 @@ const handelsignup = () => {
           <input
           onChange={(e)=>{setpassword(e.target.value)}}
               type="Password"
+              title='please enter number'
               value={password}
               className="bg-white py-2  border-b border-green-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
               placeholder="please write your password"
