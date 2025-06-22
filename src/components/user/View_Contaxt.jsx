@@ -18,7 +18,7 @@ const View_Contaxt = () => {
   return (
     <div className='flex bg-green-300 h-screen' style={{ width: '100%', height: '400px' }}>
       
-    mkk
+  mkk
     </div>
     )
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 const footer = () => {
   return (
-  <div  className=''> {//data-aos="fade-up"
-  }
+  <div  className=''> 
+
       <footer className="footer p-10 bg-neutral text-neutral-content">
     <div>
     <div className="ml-5 w-20 rounded-2xl shadow-md hover:animate-pulse ">

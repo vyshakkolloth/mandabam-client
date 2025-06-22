@@ -90,7 +90,13 @@ const userLogin = () => {
                 </span>
                 <Toaster toastOptions={3000} />
                 <input
-                  name="email"
+                  type="text"
+                  id="username"
+                  name="username"
+                  autocomplete="username"
+                  required
+                  onBlur={checkEmail}
+
                   onChange={(e) => {
                     setemail(e.target.value);
                     const result = patternEmail.test(e.target.value.trim());
@@ -105,7 +111,7 @@ const userLogin = () => {
                   }}
                   placeholder="Enter your Email ID"
                   className="grow  pl-1 focus:outline-none bg-white py-1 "
-                  type="text"
+                 
                   value={email}
                 />
                 <span

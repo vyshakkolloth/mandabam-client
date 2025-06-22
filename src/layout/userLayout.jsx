@@ -7,10 +7,16 @@ import Alert from '../components/alert/Alert'
 const userLayout = () => {
   return (
     <>
+    
+    <div className=' '>
     <Nav/>
-    <Alert/>
+      <div className='pt-[4rem] '>
+        <Alert/>
    <Outlet/>
    <Footer/>
+      </div>
+    </div>
+    
     </>
   )
 }

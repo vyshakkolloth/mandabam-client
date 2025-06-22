@@ -16,59 +16,18 @@ const Nav = () => {
 
   };
   return (
-    // <div className=" navbar pt-5  bg-pink-700    text-white flex justify-around  z-30">
-    //  <Link to="/"> <span className=" text-lg text-white  no-underline hover:underline  ">
-    //     {" "}
-    //     India Favaroite wedding Venue booking Paltform
-    //   </span> </Link>
-    
-    //   {localStorage.getItem("userToken") ? (
-    //     <div className="dropdown dropdown-hover ">
-    //       <label tabIndex={0} className="btn btn-sm">
-    //        user <span> <FaUserCircle/></span>
-    //       </label>
-    //       <ul
-    //         tabIndex={0}
-    //         className="dropdown-content z-[1] menu p-1 shadow bg-base-100 rounded-box w-66"
-    //       >
-    //         <li>
-    //         <Link to="/profile">
-    //           Profile
-    //           </Link>
-    //         </li>
-    //         <li  onClick={handleLogout}>
-    //           <Link>
-    //           log Out
-    //           </Link>
-    //         </li>
-    //       </ul>
-    //     </div>
-    //   ) : (
-    //     // <button onClick={handleLogout
-    //     // } className="bg-pink-200 stroke-slate-400 text-black px-5 rounded-2xl shadow-pink-950 ml-4">
-    //     //   {" "}
-    //     //   Log Out
-    //     // </button>
-    //     <Link to="/login">
-    //       <button className="bg-pink-200 stroke-slate-400 text-black px-5 rounded-2xl shadow-pink-950 ml-4">
-    //         {" "}
-    //         Log in
-    //       </button>
-    //     </Link>
-    //   )}
-    // </div>
-    <div data-aos="zoom-in" className="navbar  bg-pink-400   z-50   glass "> 
+  
+    <div className="navbar  bg-gradient-to-r from-pink-500/60 to-rose-400/60  z-50   glass  shadow-xl fixed shadow-pink-500/50 marginbottom-5"> 
   <div className="flex-none">
   <Link to="/">
-    {/* <span className=" normal-case text-xl"> */}
+   
   <div className="ml-5 w-10 rounded-2xl shadow-md shadow-white hover:animate-pulse ">
     <img className="mask mask-squircle object-cover " src="images/Mandabam.png"/>
     </div>
-    {/* </span> */}
     </Link>
   </div>
   <div className="flex-1 px-5">
-  <Link to="/"> <span className=" text-lg text-white  no-underline hover:underline  ">
+  <Link to="/"> <span className=" text-[1rem] md:text-[1.4rem] text-white  no-underline hover:underline  ">
        {" "}
       India Favaroite wedding Venue booking Paltform
     </span> </Link>
@@ -96,7 +55,7 @@ const Nav = () => {
         </details>
       </li>)
       :
-       (<li className="bg-base-100 rounded-3xl"> <Link to="/login" >
+       (<li className="bg-base-100 rounded-3xl  inset-ring-2 inset-ring-rose-400  text-black "> <Link to="/login" >
         Log in
 
         </Link></li>)} 

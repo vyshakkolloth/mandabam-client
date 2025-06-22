@@ -24,9 +24,9 @@ const Review = ({names,venueid}) => {
       if(err.response.status===500){
         navigate("/500")
       }else if(err.code==="ERR_BAD_REQUEST"){
-        navigate("/conerr")
+        navigate("/400")
       }
-      console.log(err,"jjjj")
+      
     })
    
   }, [])

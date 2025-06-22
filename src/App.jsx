@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/conerr" element={<ConnectionError/>}/>
+        <Route path="/400" element={<ConnectionError/>}/>
         <Route exact path="/*" element={<UserRoutes />} />
 
         <Route
