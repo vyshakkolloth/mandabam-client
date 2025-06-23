@@ -10,7 +10,7 @@ const userLayout = () => {
     
     <div className=' '>
     <Nav/>
-      <div className='pt-[4rem] '>
+      <div className='pt-[4.5rem] sm:pt-[4rem] '>
         <Alert/>
    <Outlet/>
    <Footer/>
