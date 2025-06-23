@@ -83,12 +83,12 @@ const home = () => {
                   data={stateData}
                   selected={state}
                   setSelected={setstate}
-                  className="bg-white w-28 shadow-none"
+                  className="bg-white min-w-28 shadow-none "
                 />
                 {/* <div onClick={handleClick} className='bg-rose-500 py-4 px-6'><FaSearchLocation/></div> */}
               </div>
             </div>
-            <button onClick={handleClick} className="btn md:text-[1rem] text-[.5rem] shadow-rose-200 font-bold text-shadow-sm drop-shadow-xl ring-1 ring-pink-300">Get Started</button>
+            <button onClick={handleClick} className=" btn rounded-sm md:text-[1rem] text-[.5rem] shadow-rose-200 font-bold text-shadow-sm drop-shadow-xl ring-1 ring-pink-300">Get Started</button>
           </div>
         </div>
       </div>
