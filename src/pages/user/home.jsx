@@ -64,7 +64,7 @@ const home = () => {
 
 
 
-      <div className="flex min-h-full flex-col justify-center items-center sm:h-[90vh] bg-no-repeat bg-cover  " style={{ backgroundImage: 'url("/images/Banner.png")' }}>
+      <div className="flex min-h-full flex-col justify-center items-center sm:h-[90vh] bg-no-repeat sm:bg-cover bg-center " style={{ backgroundImage: 'url("/images/Banner.png")' }}>
 
         <div className="hero-content text-center text-neutral-content ">
           <div className="max-w-md text-white" >
@@ -88,7 +88,7 @@ const home = () => {
                 {/* <div onClick={handleClick} className='bg-rose-500 py-4 px-6'><FaSearchLocation/></div> */}
               </div>
             </div>
-            <button onClick={handleClick} className="btn md:text-[1rem] text-[.5rem] shadow-rose-200 font-bold text-shadow-sm drop-shadow-xl ring-1 ring-pink-300">Get Started</button>
+            <button onClick={handleClick} className="btn md:text-[1rem] text-[.9rem] shadow-rose-200 font-bold text-shadow-sm drop-shadow-xl ring-1 ring-pink-300">Get Started</button>
           </div>
         </div>
       </div>
@@ -133,9 +133,9 @@ const home = () => {
         </div>
         {/* text area */}
         <div className='flex relative  '>
-          {/* <div className='absolute top-10 left-1 -translate-y-1/2 w-[8%] h-[15%]  '>
+          <div className='absolute top-6 left-6 sm:top-10 sm:left-1 sm-translate-y-1/2 w-[8%] h-[15%]  '>
             <img src="/images/comment.png" alt="flower" className="w-full h-auto mx-auto" />
-          </div> */}
+          </div>
           <div className=' flex flex-col   items-start justify-start   text-center py-4 px-10 sm:px-20 '>
             <h1 className="sm:text-[3rem] text-[2.5rem] not-italic font-bold text-gray-800 mb-2 font-fancy ">What our clients say</h1>
             <p className="text-gray-600 font-fancy text-[1rem] text-left sm:text-[1.1rem] pt-[1rem] max-w-xl">Our wedding day was truly a dream come true, and we owe it all to the incredible team behind the scenes. From the breathtaking decor to the flawless coordination, everything was beyond perfect. You understood our vision better than we did and turned it into a reality. Our guests are still talking about how magical the whole day felt. Thank you for making our most important day unforgettable</p>

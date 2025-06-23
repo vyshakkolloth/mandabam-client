@@ -17,7 +17,7 @@ const Nav = () => {
   };
   return (
   
-    <div className="navbar  bg-gradient-to-r from-pink-500/60 to-rose-400/60  z-50   glass  shadow-xl fixed shadow-pink-500/50 marginbottom-5"> 
+    <div className="navbar  bg-gradient-to-r from-pink-500/60 to-rose-400/60  z-50   glass  sm:shadow-xl fixed shadow-pink-500/50 marginbottom-5"> 
   <div className="flex-none">
   <Link to="/">
    
