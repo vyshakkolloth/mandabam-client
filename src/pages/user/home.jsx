@@ -8,6 +8,7 @@ import Selector from "../../components/Vendor/Selector"; // Make sure this path 
 import { FaStore } from '@react-icons/all-files/fa/FaStore';
 
 import { getBanner } from '../../service/AdminApi';
+import Cards from '../../components/user/landingPage/Cards';
 const home = () => {
   const navigate = useNavigate()
     ;
@@ -94,7 +95,6 @@ const home = () => {
       </div>
 
 
-
       {/* video center */}
       <div className="flex flex-col items-center justify-center text-center py-5 px-4  sm:px-20">
 
@@ -119,6 +119,10 @@ const home = () => {
         </div>
 
       </div>
+
+      {/* Cards */}
+      <Cards />
+     
       {/* what over client say */}
       <section className="flex flex-row items-start justify-center text-center py-5 sm:px-20 flex-wrap bg-slate-400/20">
 
@@ -240,24 +244,7 @@ BY Aakanksha|21 Feb, 2019|1028 views|</p>
         </div>
 
 
-        {/* 
-<section>
-            <div className="pb-36">
-                <div className="mx-auto px-6 max-w-6xl text-gray-500">
-                    <div className="text-center">
-                        <h2 className="text-3xl text-gray-950 dark:text-white font-semibold">Built by the Community <br/> for the Community</h2>
-                        <p className="mt-6 text-gray-700 dark:text-gray-300">Harum quae dolore orrupti aut temporibus ariatur.</p>
-                    </div>
-                    <div className="mt-12 max-w-lg mx-auto flex justify-center flex-wrap gap-3">
-                        {[1,2,3,4,5,6,7,8,9,10].map(index => (
-                            <a key={index} href="https://github.com/meschacirung" target="_blank" title="Méschac Irung" className="size-16 rounded-full border border-gray-950/5 dark:border-white/5">
-                                <img alt="John Doe" src={`https://randomuser.me/api/portraits/men/${index}.jpg`} className="rounded-full" loading="lazy" width="120" height="120"/>
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section> */}
+       
 
       </div>
 

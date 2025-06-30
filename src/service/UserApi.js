@@ -45,8 +45,9 @@ const bookedVenue=()=>userAxiosInstance.get("/bookedVenue")
 const postReview=(data)=>userAxiosInstance.post("/postReview",{data})
 const getReview=(id)=>userAxiosInstance.get(`/getReview/${id}`)
 const ReportVenues=(data)=>userAxiosInstance.post("/ReportVenue",{data})
+const venueList=()=>userAxiosInstance.get("/venueList")
 export{
-    loginService,sentMessage,getUserMessage,bookedVenue,postReview,getReview,
+    loginService,sentMessage,getUserMessage,bookedVenue,postReview,getReview,venueList,
     signUpUser,PostuserMessage,paymentCreate,paymentVerify,datePicker,ReportVenues,
     venueDetail,booking,enquire,profile,search,password,authUser,changeDp,forgotPassword,changePassword,userList,
 }
